@@ -1,0 +1,9 @@
+﻿  Compiling CUDA source file GaussianBlur.cu...
+  
+  C:\Projects\CUDA\Udacity\blurKernel\blurKernel>"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v5.0\bin\nvcc.exe" -gencode=arch=compute_10,code=\"sm_21,compute_10\" --use-local-env --cl-version 2010 -ccbin "C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\x86_amd64"  -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include"  -G   --keep-dir "x64\Debug" -maxrregcount=0  --machine 64 --compile  -g   -DWIN32 -D_DEBUG -D_CONSOLE -D_UNICODE -DUNICODE -Xcompiler "/EHsc /W3 /nologo /Od /Zi /RTC1 /MDd  " -o "x64\Debug\GaussianBlur.cu.obj" "C:\Projects\CUDA\Udacity\blurKernel\blurKernel\GaussianBlur.cu" 
+  tmpxft_00002308_00000000-12_GaussianBlur.ii
+  blurKernel.vcxproj -> C:\Projects\CUDA\Udacity\blurKernel\x64\Debug\blurKernel.exe
+  A subdirectory or file C:\Projects\CUDA\Udacity\blurKernel\x64\Debug\Media already exists.
+  C:\Projects\CUDA\Udacity\blurKernel\blurKernel\Media\flowers.jpg
+  C:\Projects\CUDA\Udacity\blurKernel\blurKernel\Media\tulip.jpg
+          2 file(s) copied.

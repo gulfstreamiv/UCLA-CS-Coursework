@@ -1,0 +1,32 @@
+1) 
+
+problem: Too many capacity misses in the data cache
+solution: Increase size of cache
+drawback: larger latency, power
+
+problem: Too many control hazards
+solution: dynamic branch prediction
+drawback: more power consumption
+
+problem: Our carry lookahead adder is too slow
+solution: use ,adder, piplining
+drawback: increase complexity
+
+problem: We want to be able to use a larger immediate field in the MIPS ISA
+solution: decrease registers, increase instruction size , decrease OP code
+drawback: resource spilling, complexity of coding will grow, decrease instruction
+
+problem: The execution time of our CPU with a signle-cycle datapath is too high
+solution: multicycle, pipelining 
+drawback: complexity (more hardware such as more latches), increase CPI
+
+
+2) 
+lw IF ID EX M WB
+lw    IF ID
+bne
+lw
+lw
+bne
+sw
+

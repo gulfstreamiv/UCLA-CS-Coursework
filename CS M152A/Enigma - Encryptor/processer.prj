@@ -1,0 +1,5 @@
+verilog work "seconds.v"
+verilog work "debouncerBtn.v"
+verilog work "debouncer.v"
+verilog work "clock.v"
+verilog work "processor.v"

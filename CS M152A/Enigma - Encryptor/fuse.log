@@ -1,0 +1,39 @@
+Running: C:\Xilinx\14.6\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -lib secureip -o C:/Users/152/Desktop/temp2333/ll_isim_beh.exe -prj C:/Users/152/Desktop/temp2333/ll_beh.prj work.ll work.glbl 
+ISim P.68d (signature 0x7708f090)
+Number of CPUs detected in this system: 2
+Turning on mult-threading, number of parallel sub-compilation jobs: 4 
+Determining compilation order of HDL files
+Analyzing Verilog file "C:/Users/152/Desktop/temp2333/uart_fifo.v" into library work
+Analyzing Verilog file "C:/Users/152/Desktop/temp2333/uart.v" into library work
+Analyzing Verilog file "C:/Users/152/Desktop/temp2333/uart_top.v" into library work
+Analyzing Verilog file "C:/Users/152/Desktop/temp2333/seconds.v" into library work
+Analyzing Verilog file "C:/Users/152/Desktop/temp2333/debouncerBtn.v" into library work
+Analyzing Verilog file "C:/Users/152/Desktop/temp2333/debouncer.v" into library work
+Analyzing Verilog file "C:/Users/152/Desktop/temp2333/clock.v" into library work
+Analyzing Verilog file "C:/Users/152/Desktop/temp2333/processor.v" into library work
+Analyzing Verilog file "C:/Users/152/Desktop/temp2333/data.v" into library work
+Analyzing Verilog file "C:/Users/152/Desktop/temp2333/model_uart.v" into library work
+Analyzing Verilog file "C:/Users/152/Desktop/temp2333/encryptor.v" into library work
+Analyzing Verilog file "C:/Users/152/Desktop/temp2333/ll.v" into library work
+Analyzing Verilog file "C:/Xilinx/14.6/ISE_DS/ISE//verilog/src/glbl.v" into library work
+Starting static elaboration
+Completed static elaboration
+Compiling module clock
+Compiling module seconds
+Compiling module debouncer
+Compiling module debouncerBtn
+Compiling module processer
+Compiling module uart_fifo
+Compiling module uart
+Compiling module uart_top_default
+Compiling module data
+Compiling module encryptor
+Compiling module model_uart(baud=1000000,name="UA...
+Compiling module ll
+Compiling module glbl
+Time Resolution for simulation is 1ps.
+Waiting for 10 sub-compilation(s) to finish...
+Compiled 13 Verilog Units
+Built simulation executable C:/Users/152/Desktop/temp2333/ll_isim_beh.exe
+Fuse Memory Usage: 29740 KB
+Fuse CPU Usage: 624 ms

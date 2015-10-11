@@ -1,0 +1,52 @@
+//CS 161 hw9 
+//Bolun Hu UID:104056403
+=========================Question 1 on Constraints=========================
+
+If we assume that the prior probability of having the disease 1/1000 to be unchanged, then Samiam gives me:
+
+False positive: <=0.22%
+False negative: 5%
+Prior probability of having disease: 0.1% (unchange)
+
+=========================Report for Question 2=============================
+
+*The most likely instantiation of all variables given that Sambot has sensed the lights to be on, but has sensed no bark. Explain how you obtained this answer (for partial credit in case you get the wrong answer).
+
+Given LightSensor = On and SoundSensor = No. 
+
+ExpectingGuests = No	93.00%
+FamilyHome = No		88.23%
+DogBowelTrouble = Yes	79.56%
+OutdoorLight = On	99.61%
+DogOutside = Yes	91.28%
+Battery = OK		99.77%
+DogBarking = No		84.34%
+SoundSensorHealth = OK	89.42%
+LightSensorHealth = OK	99.69%
+HearableBarking = No	94.79%
+
+
+I get the above result by first EM learn the data, then step into Query mode, and then for each of the two given evidence I clicked on the corresponding given state, and the percentage for other query states will be updated according to the given evidence.
+
+===========================================================================
+
+*The most likely instantiation of the sensors given that the family is home and no guests are expected. Explain how you obtained this answer (for partial credit in case you get the wrong answer).
+
+Given ExpectingGuests = No and FamilyHome = Yes
+
+LightSensor = Off    79.22%
+SoundSensor = Off    54.96%
+
+Using the same procedure as the above one, entering query mode, we can set ExpectingGuests to be No, and FamilyHome to be yes, and the other states will be updated according to our given evidence.
+
+===========================================================================
+
+*The smallest set of variables Z in your network such that the two sensors are independent given Z. Justify your answer based on d-separation.
+
+Z = {Battery, OutdoorLight}
+
+===========================================================================
+
+*The type of network you constructed: tree, polytree (singly-connected network), or multiply-connected network.
+
+It is a multiply-connected network, since for instance, ExpectingGuest can get to OutdoorLight with two different routes, by either go there directly or first go to FamilyHome and then go to OutdoorLight.

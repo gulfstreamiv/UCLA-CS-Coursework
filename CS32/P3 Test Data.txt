@@ -1,0 +1,371 @@
+Project 3 Test Data
+We renamed your main routine to something harmless, compiled your .cpp files along with the following, and linked the resulting object files. We ran the resulting executable with inputs 1 through 32 to test your solution. (This program uses some features of C++ library we didn't cover, but that's irrelevant to you.) The first 28 cases were worth 1.75 points each; the last four, testing SmartPlayer, were worth 3, 3, 7, and 13 points. 
+
+// tester.cpp
+
+#include "provided.h"
+#include <iostream>
+#include <sstream>
+#include <streambuf>
+#include <cstdlib>
+#include <cassert>
+#include <string>
+using namespace std;
+
+class ForcedPlayer : public Player
+{
+  public:
+    ForcedPlayer(string name, string moves)
+     : Player(name), m_moves(moves)
+    {}
+    int chooseMove(const Scaffold& s, int N, int color)
+    {
+	if (s.numberEmpty() == 0)
+		return -1;
+	int nfilled = s.rows()*s.cols() - s.numberEmpty();
+	int pos = nfilled / 2;
+    	if (pos >= m_moves.size())
+	    return -1;
+	return m_moves[pos] - '0';
+    }
+  private:
+    string m_moves;
+};
+
+void testone(int n)
+{
+	switch (n)
+	{
+			         default: {
+	    cout << "Bad argument" << endl;
+			} break; case  1: {
+	    Scaffold s(10,7);
+	    assert(s.cols() == 10  &&  s.rows() == 7  &&
+				s.numberEmpty() == s.cols()*s.rows());
+			} break; case  2: {
+	    ostringstream oss;
+	    streambuf* oldcout = cout.rdbuf(oss.rdbuf());
+	    Scaffold s(3,2);
+	    s.display();
+	    cout.rdbuf(oldcout);
+	    string res = oss.str();
+	    if (!res.empty()  &&  res[0] == '\n')
+		res.erase(0, 1);
+	    assert(res == "| | | |\n| | | |\n+-+-+-+\n");
+			} break; case  3: {
+	    Scaffold s(3,2);
+	    assert(!s.makeMove(0, RED)  &&  !s.makeMove(4, RED));
+			} break; case  4: {
+	    Scaffold s(3,2);
+	    assert(!s.makeMove(1, VACANT)  &&  !s.makeMove(1, 42));
+	    assert(s.checker(1,1) == VACANT  &&  s.checker(1,2) == VACANT);
+	    assert(s.numberEmpty() == 6);
+			} break; case  5: {
+	    Scaffold s(3,2);
+	    assert(s.makeMove(1, RED));
+			} break; case  6: {
+	    Scaffold s(3,2);
+	    s.makeMove(1, RED);
+	    assert(s.checker(1,2) == RED  &&  s.checker(1,1) == VACANT);
+			} break; case  7: {
+	    Scaffold s(3,2);
+	    s.makeMove(1, RED);
+	    assert(s.numberEmpty() == 5);
+	  		} break; case  8: {
+	    Scaffold s(3,2);
+	    s.makeMove(1, RED);
+	    assert(s.makeMove(1, BLACK));
+	    assert(s.checker(1,1) == BLACK);
+	  		} break; case  9: {
+	    Scaffold s(3,2);
+	    s.makeMove(1, RED);
+	    s.makeMove(1, BLACK);
+	    assert(!s.makeMove(1, RED));
+	  		} break; case 10: {
+	    Scaffold s(3,2);
+	    s.makeMove(1, RED);
+	    s.makeMove(1, BLACK);
+	    s.makeMove(2, RED);
+	    s.makeMove(2, BLACK);
+	    s.makeMove(3, RED);
+	    s.makeMove(3, BLACK);
+	    assert(s.numberEmpty() == 0);
+	    assert(s.checker(0,1) == VACANT  &&  s.checker(4,1) == VACANT);
+	    assert(s.checker(1,0) == VACANT  &&  s.checker(1,3) == VACANT);
+	  		} break; case 11: {
+	    Scaffold s(3,2);
+	    s.makeMove(1, RED);
+	    assert(s.undoMove(0) == VACANT  &&  s.undoMove(4) == VACANT);
+	    assert(s.numberEmpty() == 5);
+	  		} break; case 12: {
+	    Scaffold s(3,2);
+	    s.makeMove(1, RED);
+	    s.makeMove(1, BLACK);
+	    assert(s.undoMove(1) == BLACK);
+	    assert(s.undoMove(1) == RED);
+	    assert(s.undoMove(1) == VACANT);
+	  		} break; case 13: {
+	    Scaffold s(3,2);
+	    s.makeMove(1, RED);
+	    s.makeMove(1, BLACK);
+	    s.undoMove(1);
+	    assert(s.checker(1,1) == VACANT  &&  s.checker(1,2) == RED);
+	  		} break; case 14: {
+	    Scaffold s(3,2);
+	    s.makeMove(1, RED);
+	    s.makeMove(1, BLACK);
+	    s.undoMove(1);
+	    assert(s.numberEmpty() == 5);
+	  		} break; case 15: {
+	    ostringstream oss;
+	    streambuf* oldcout = cout.rdbuf(oss.rdbuf());
+	    Scaffold s(3,2);
+	    s.makeMove(1, RED);
+	    s.makeMove(2, BLACK);
+	    s.makeMove(2, RED);
+	    s.display();
+	    cout.rdbuf(oldcout);
+	    string res = oss.str();
+	    size_t pos = res.find('|');
+	    assert(pos != string::npos);
+	    res.erase(0, pos);
+	    pos = res.find_last_not_of('\n');
+	    res.erase(pos+1);
+	    assert(res == "| |R| |\n|R|B| |\n+-+-+-+");
+			} break; case 16: {
+	    Scaffold s(3,1);
+	    ForcedPlayer p1("P1", "12");
+	    ForcedPlayer p2("P2", "3");
+	    Game g(s, 2, &p1, &p2);
+	    int w = 999;
+	    assert(!g.completed(w)  &&  w == 999);
+	  		} break; case 17: {
+	    Scaffold s(3,1);
+	    ForcedPlayer p1("P1", "21");
+	    ForcedPlayer p2("P2", "3");
+	    Game g(s, 2, &p1, &p2);
+	    assert(g.takeTurn());
+	    assert(g.checker(2,1) == RED);
+	  		} break; case 18: {
+	    Scaffold s(3,1);
+	    ForcedPlayer p1("P1", "21");
+	    ForcedPlayer p2("P2", "3");
+	    Game g(s, 2, &p1, &p2);
+	    g.takeTurn();
+	    assert(g.takeTurn());
+	    int w = 999;
+	    assert(!g.completed(w)  &&  g.checker(3,1) == BLACK);
+	  		} break; case 19: {
+	    Scaffold s(3,1);
+	    ForcedPlayer p1("P1", "21");
+	    ForcedPlayer p2("P2", "3");
+	    Game g(s, 2, &p1, &p2);
+	    g.takeTurn();
+	    g.takeTurn();
+	    assert(g.takeTurn());
+	    int w = 999;
+	    assert(g.completed(w)  &&  w == RED);
+	  		} break; case 20: {
+	    Scaffold s(3,1);
+	    ForcedPlayer p1("P1", "13");
+	    ForcedPlayer p2("P2", "2");
+	    Game g(s, 2, &p1, &p2);
+	    g.takeTurn();
+	    g.takeTurn();
+	    g.takeTurn();
+	    assert(!g.takeTurn());
+	    int w;
+	    assert(g.completed(w)  &&  w == TIE_GAME);
+	  		} break; case 21: {
+	    Scaffold s(3,1);
+	    ForcedPlayer p1("P1", "132132132132");
+	    ForcedPlayer p2("P2", "213213213213");
+	    Game g(s, 2, &p1, &p2);
+	    g.play();
+	    int w;
+	    assert(g.completed(w));
+	  		} break; case 22: {
+	    Scaffold s(10,3);
+	    ForcedPlayer p1("P1", "569:129:12");  // : is column 10
+	    ForcedPlayer p2("P2", "12485659:6");
+	    Game g(s, 3, &p1, &p2);
+	    for (int k = 0; k < 20; k++)
+	    	g.takeTurn();
+	    int w = 999;
+	    assert(g.completed(w)  &&  w == BLACK);
+	    // RR..BB..BB
+	    // RR..BB..RR
+	    // BB.BRR.BRR
+			} break; case 23: {
+	    ostringstream oss;
+	    streambuf* oldcout = cout.rdbuf(oss.rdbuf());
+	    istringstream iss("11\n0\n6\n2\n1\n3\n4\n5\n7\n8\n9\n10\n");
+	    streambuf* oldcin = cin.rdbuf(iss.rdbuf());
+	    Scaffold s(10,2);
+	    s.makeMove(2,RED);
+	    s.makeMove(6,BLACK);
+	    s.makeMove(6,RED);
+	    HumanPlayer hp("Hugh");
+	    assert(hp.chooseMove(s, 4, BLACK) == 2);
+	    cin.rdbuf(oldcin);
+	    cout.rdbuf(oldcout);
+	  		} break; case 24: {
+	    ostringstream oss;
+	    streambuf* oldcout = cout.rdbuf(oss.rdbuf());
+	    istringstream iss("1\n2\n3\n");
+	    streambuf* oldcin = cin.rdbuf(iss.rdbuf());
+	    Scaffold s(3,2);
+	    s.makeMove(1, RED);
+	    s.makeMove(1, BLACK);
+	    s.makeMove(2, BLACK);
+	    s.makeMove(2, RED);
+	    s.makeMove(3, RED);
+	    s.makeMove(3, BLACK);
+	    HumanPlayer hp("Hugh");
+	    assert(hp.chooseMove(s, 3, RED) == -1);
+	    cin.rdbuf(oldcin);
+	    cout.rdbuf(oldcout);
+	  		} break; case 25: {
+	    Scaffold s(10,2);
+	    s.makeMove(1,RED);
+	    s.makeMove(1,BLACK);
+	    s.makeMove(2,BLACK);
+	    s.makeMove(2,RED);
+	    s.makeMove(3,RED);
+	    s.makeMove(3,BLACK);
+	    s.makeMove(4,BLACK);
+	    s.makeMove(4,RED);
+	    s.makeMove(5,RED);
+	    s.makeMove(5,BLACK);
+	    s.makeMove(6,BLACK);
+	    s.makeMove(6,RED);
+	    s.makeMove(7,RED);
+	    s.makeMove(8,BLACK);
+	    s.makeMove(8,RED);
+	    s.makeMove(9,RED);
+	    s.makeMove(9,BLACK);
+	    s.makeMove(10,BLACK);
+	    s.makeMove(10,RED);
+	    BadPlayer bp("Hugh");
+	    assert(bp.chooseMove(s, 4, BLACK) == 7);
+	  		} break; case 26: {
+	    Scaffold s(10,2);
+	    s.makeMove(1,RED);
+	    s.makeMove(1,BLACK);
+	    s.makeMove(2,BLACK);
+	    s.makeMove(2,RED);
+	    s.makeMove(3,RED);
+	    s.makeMove(3,BLACK);
+	    s.makeMove(4,BLACK);
+	    s.makeMove(4,RED);
+	    s.makeMove(5,RED);
+	    s.makeMove(5,BLACK);
+	    s.makeMove(6,BLACK);
+	    s.makeMove(6,RED);
+	    s.makeMove(7,RED);
+	    s.makeMove(7,BLACK);
+	    s.makeMove(8,BLACK);
+	    s.makeMove(8,RED);
+	    s.makeMove(9,RED);
+	    s.makeMove(9,BLACK);
+	    s.makeMove(10,BLACK);
+	    s.makeMove(10,RED);
+	    BadPlayer bp("Hugh");
+	    assert(bp.chooseMove(s, 4, BLACK) == -1);
+	  		} break; case 27: {
+	    Scaffold s(10,2);
+	    s.makeMove(1,RED);
+	    s.makeMove(1,BLACK);
+	    s.makeMove(2,BLACK);
+	    s.makeMove(2,RED);
+	    s.makeMove(3,RED);
+	    s.makeMove(3,BLACK);
+	    s.makeMove(4,BLACK);
+	    s.makeMove(4,RED);
+	    s.makeMove(5,RED);
+	    s.makeMove(5,BLACK);
+	    s.makeMove(6,BLACK);
+	    s.makeMove(6,RED);
+	    s.makeMove(7,RED);
+	    s.makeMove(8,BLACK);
+	    s.makeMove(8,RED);
+	    s.makeMove(9,RED);
+	    s.makeMove(9,BLACK);
+	    s.makeMove(10,BLACK);
+	    s.makeMove(10,RED);
+	    SmartPlayer sp("Sam");
+	    assert(sp.chooseMove(s, 4, BLACK) == 7);
+	  		} break; case 28: {
+	    Scaffold s(10,2);
+	    s.makeMove(1,RED);
+	    s.makeMove(1,BLACK);
+	    s.makeMove(2,BLACK);
+	    s.makeMove(2,RED);
+	    s.makeMove(3,RED);
+	    s.makeMove(3,BLACK);
+	    s.makeMove(4,BLACK);
+	    s.makeMove(4,RED);
+	    s.makeMove(5,RED);
+	    s.makeMove(5,BLACK);
+	    s.makeMove(6,BLACK);
+	    s.makeMove(6,RED);
+	    s.makeMove(7,RED);
+	    s.makeMove(7,BLACK);
+	    s.makeMove(8,BLACK);
+	    s.makeMove(8,RED);
+	    s.makeMove(9,RED);
+	    s.makeMove(9,BLACK);
+	    s.makeMove(10,BLACK);
+	    s.makeMove(10,RED);
+	    SmartPlayer sp("Sam");
+	    assert(sp.chooseMove(s, 4, BLACK) == -1);
+	  		} break; case 29: {
+	    Scaffold s(10,1);
+	    s.makeMove(3, RED);
+	    s.makeMove(7, BLACK);
+	    s.makeMove(6, RED);
+	    s.makeMove(9, BLACK);
+	    s.makeMove(5, RED);
+	    SmartPlayer sp("Sam");
+	    assert(sp.chooseMove(s, 3, BLACK) == 8);
+	    //  ..R.RRB.B.
+	  		} break; case 30: {
+	    Scaffold s(10,1);
+	    s.makeMove(3, RED);
+	    s.makeMove(7, BLACK);
+	    s.makeMove(10, RED);
+	    s.makeMove(2, BLACK);
+	    s.makeMove(5, RED);
+	    SmartPlayer sp("Sam");
+	    assert(sp.chooseMove(s, 3, BLACK) == 4);
+	    //  .BR.R.B..R
+	  		} break; case 31: {
+	    Scaffold s(10,1);
+	    s.makeMove(9, RED);
+	    s.makeMove(10, BLACK);
+	    s.makeMove(4, RED);
+	    s.makeMove(2, BLACK);
+	    SmartPlayer sp("Sam");
+	    assert(sp.chooseMove(s, 3, RED) == 5);
+	    //  .B.R....RB
+	  		} break; case 32: {
+	    Scaffold s(7,2);
+	    s.makeMove(2, RED);
+	    s.makeMove(2, BLACK);
+	    s.makeMove(6, RED);
+	    SmartPlayer sp("Sam");
+	    assert(sp.chooseMove(s, 3, BLACK) == 4);
+	    //  .B.....
+	    //  .R...R.
+			}
+	}
+}
+
+int main()
+{
+        cout << "Enter test number: ";
+        int n;
+        cin >> n;
+        testone(n);
+        cout << "Passed" << endl;
+}

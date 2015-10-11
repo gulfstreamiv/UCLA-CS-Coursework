@@ -1,0 +1,3 @@
+false positive: <=0.22%
+false negative: 5%
+prior probability of having disease: 0.1%

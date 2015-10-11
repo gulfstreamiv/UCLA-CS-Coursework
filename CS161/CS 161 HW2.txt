@@ -1,0 +1,149 @@
+; CS 161 Homework 2
+
+; ---------------------------
+
+; Problem 1: DFS
+
+; This function implements depth-first search
+
+(defun DFS (L)
+  (cond ((null L) NIL)      ; base case null
+        ((atom L) (list L)) ; base case atom
+        ((= (length L) 1) (DFS (car L)))  ; recurse for one child
+        (t (append (DFS (car L)) (DFS (cdr L))))  ; recurse for multiple children
+  )
+)
+
+; Problem 2: DFID
+
+; This function implements depth-first interative-deepening
+; Searches list L up to depth n
+
+(defun DFID (L n)
+  (cond ((null L) NIL)       ; base case null
+        ((atom L) (list L))  ; base case atom
+        ((= n 0) NIL)        ; depth limit reached and not atom
+        (t (append (DFID L (- n 1)) (limitedDFS L n) ) )  ; recurse
+  )
+)
+
+; This function function is a utility function for DFID
+; It does a depth-first search on L, but stops at depth n
+
+(defun limitedDFS (L n)
+  (cond ((null L) NIL)      ; base case null
+        ((atom L) (list L)) ; base case atom
+        ((= n 0) (cond ((atom L) (list L))  ; depth limit and atom
+                       (t NIL)              ; depth limit and not atom
+                 )
+        )
+        ((= (length L) 1) (limitedDFS (car L) (- n 1)))  ; recurse for one child
+        (t (append (limitedDFS (car L) (- n 1)) (limitedDFS (cdr L) n )))  ; recurse for multiple children
+  )
+)
+
+;=====================================================================================
+
+; Problem 3 Missionary Cannibal 
+
+(defun mult-dfs (states path)
+  (cond ((NULL states) NIL)
+        ((NULL (mc-dfs (first states) path)) (mult-dfs (rest states) path))
+        (t (mc-dfs (first states) path))))
+;=====================================================================================
+
+(defun mc-dfs (s path)
+  (cond ((NULL s) NIL)
+        ((on-path s path) NIL)
+        ((final-state s) (append path (list s)))
+        (t (mult-dfs (succ-fn s) (append path (list s))))))
+;=====================================================================================
+
+(defun final-state (s)
+(cond ((equal s '(3 3 NIL)) T)
+(t NIL)
+)
+)
+;=====================================================================================
+
+(defun next-state (s m c)
+   (cond  ((= (+ m c) 0) NIL)
+	   ((< (first s) m) NIL)
+          ((< (second s) c) NIL)
+          ((< (- (first s) m) (- (second s) c)) 
+                                                     (cond ((= (- (first s) m) 0)
+										(cond ((null (third s)) (list (- 3 (- (first s) m)) (- 3 (- (second s) c)) t))
+										(t (list (- 3 (- (first s) m)) (- 3 (- (second s) c)) NIL))
+										)
+							    )
+							    (t NIL)
+						      )
+						      
+	    )
+	   ((> (+ c (- 3 (second s))) (+ m (- 3 (first s)))) 
+	                                                       (cond ((= (+ m (- 3 (first s))) 0) 
+											(cond ((null (third s)) (list (- 3 (- (first s) m)) (- 3 (- (second s) c)) t))
+ 											      (t (list (- 3 (- (first s) m)) (- 3 (- (second s) c)) NIL))
+									                 )
+								      )
+							             (t NIL)
+								      
+							        )
+	   )
+         (t (cond ((null (third s)) (list (- 3 (- (first s) m)) (- 3 (- (second s) c)) t))
+ 		    (t (list (- 3 (- (first s) m)) (- 3 (- (second s) c)) NIL))
+             )
+          )
+    )
+)
+
+;=====================================================================================
+
+(defun succ-fn (s)
+     (let((A (first s)) (B (second s)) (C (third s)))
+           (cond ((= A 3)
+				(cond   ((= B 0) NIL)
+					((= B 1) (list (next-state s 0 1) (next-state s 2 0)))
+					((= B 2) (list (next-state s 1 0) (next-state s 0 1) (next-state s 0 2)))
+					((= B 3) (list (next-state s 0 1) (next-state s 1 1) (next-state s 0 2)))
+					(t NIL)
+				 )
+		  )
+		  ((= A 2) 
+				(cond   ((= B 0) NIL)
+					((= B 1) NIL)
+					((= B 2) (list (next-state s 1 1)))
+					((= B 3) NIL)
+					(t NIL)
+				 )		      
+		   )
+		  ((= A 1)
+				(cond   ((= B 0) NIL)
+					((= B 1) (list (next-state s 1 0) (next-state s 1 1)))
+					((= B 2) NIL)
+					((= B 3) NIL)
+					(t NIL)
+				 )
+		    )
+		  ((= A 0) NIL)
+		  (t NIL)
+	     )
+      )
+)
+
+
+;=====================================================================================
+
+(defun on-path (s states)
+    (cond ((null states) NIL)
+          ((= (length states) 1) (cond ((equal (car states) s) t)
+				       (t NIL)
+				  )
+	   )
+	  (t (cond ((on-path s (cons (car states) NIL)) t)
+	           ((on-path s (cdr states)) t)
+		   (t NIL)
+	      )
+	   )
+     )
+)

@@ -1,0 +1,6 @@
+Debuggers do not remove bugs. They only show them in slow motion.
+4 8 16 32 64 128
+0 -155
+0 0
+DDDC@B
+6 2 4 3 5 1

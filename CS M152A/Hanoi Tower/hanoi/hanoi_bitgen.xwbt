@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=C:\Users\Bolun\Desktop\HT\hanoi\hanoi.ncd
+OUTFILE=C:\Users\Bolun\Desktop\HT\hanoi\hanoi.bit
+FAMILY=Spartan6
+PART=xc6slx16-3csg324
+WORKINGDIR=C:\Users\Bolun\Desktop\HT\hanoi
+LICENSE=WebPack
+USER_INFO=210990114_0_0_515

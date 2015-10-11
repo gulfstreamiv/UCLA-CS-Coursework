@@ -1,0 +1,82 @@
+$ PATH=$PATH:/usr/local/cs/bin
+$ export PATH
+$ mkdir gitroot
+$ cd gitroot
+$ git init
+$ git clone git://git.savannah.gnu.org/diffutils.git
+$ git add .
+$ cd diffutils
+$ git log > git-log.txt
+$ git tag > git-tags.txt
+$ git tag quote 62ca21c8c1a5aa3488589dcb191a4ef04ae9ed4f
+//give hash code a tag name
+$ git show quote > quote-patch.txt
+//generate a patch
+$ git checkout v3.0 –b lab4
+//checkout to v3.0
+$ patch < quote-patch.txt
+//patch current directory
+$ cd man
+$ patch < ../quote-patch.txt
+//patch files in man
+//......patch files in man, src, doc, po, tests, ms
+
+#	patching file diff.c
+#	Hunk #10 FAILED at 870.
+#	Hunk #11 FAILED at 900.
+#	Hunk #12 FAILED at 936.
+#	3 out of 14 hunks FAILED -- saving rejects to file diff.c.rej
+#	patching file diff3.c
+#	Hunk #6 FAILED at 434.
+#	1 out of 9 hunks FAILED -- saving rejects to file diff3.c.rej
+//need manually manually apply patch on diff.c and diff3.c
+
+$ git status
+//see which file changes
+$ git checkout NEWS
+//do this several times, revert all change other than .c and .h in /src
+$ git status
+//confirm only .c and .h in /src changes
+
+$ git status
+#	modified:   src/analyze.c
+#	modified:   src/cmp.c
+#	modified:   src/context.c
+#	modified:   src/diff.c
+#	modified:   src/diff.h
+#	modified:   src/diff3.c
+#	modified:   src/dir.c
+#	modified:   src/ifdef.c
+#	modified:   src/io.c
+#	modified:   src/sdiff.c
+#	modified:   src/side.c
+#	modified:   src/system.h
+#	modified:   src/util.c
+//then use vim to revert changes other than string
+//if a file has all changes on comment, just revert it by checkout
+
+$ git status
+#	modified:   cmp.c
+#	modified:   diff.c
+#	modified:   diff3.c
+#	modified:   dir.c
+#	modified:   sdiff.c
+#	modified:   util.c
+
+$ git clean -f
+$ cd ..
+$ git clean -f
+//clean all untracked files
+
+$ git diff > quote-3.0-patch.txt
+//output patch
+
+$ ./bootstrap
+$ ./configure
+$ make
+$ make check
+//build
+$ cd src
+$ ./diff - .
+$ ./diff --help
+//check if patch works

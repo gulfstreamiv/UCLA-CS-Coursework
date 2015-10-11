@@ -1,0 +1,7 @@
+verilog isim_temp "uart_fifo.v"
+verilog isim_temp "uart.v"
+verilog isim_temp "uart_top.v"
+verilog isim_temp "model_uart.v"
+verilog isim_temp "data.v"
+verilog isim_temp "hii.v"
+verilog isim_temp "C:/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v"

@@ -1,0 +1,52 @@
+Name: Bolun Hu 104056403
+
+Problem 2.66
+
+int leftmost_one(unsigned x)  
+{
+        x |= x >> 1;
+        x |= x >> 2;
+        x |= x >> 4;
+        x |= x >> 8;
+        x |= x >> 16;
+        return x - (x >> 1);
+}
+
+Problem 2.71
+
+(A) 
+The function does not sign extend the byte, since the right shift is performed on an unsigned number, which is implemented as a logical right shift that shifts in 0s. Also, the bitwise AND masks off everything but the byte, so the resulting sign bit of the int is always 0.
+
+(B)
+int xbyte (packed_t word, int bytenum)
+{
+   return ( (int) word << (24 - (bytenum<<3))) >> 24;
+}
+
+Problem 2.72
+
+(A)
+Since no matter what the value of maxbytes is,maxbytes-sizeof(int) >= 0 will always be true because maxbytes is a signed int and sizeof() returns a size_t. Size_t is unsigned, so the subtraction is unsigned arithmetic. A negative answer in signed arithmetic is a positive number in unsigned arithmetic, thus the answer is always positive.
+
+(B)
+void copy_int(int val, void *buf, int maxbytes)
+{
+      if (maxbytes > 0 && maxbytes >= sizeof(int))
+            memcpy(buf, (void *)&val, sizeof(val));
+}
+
+Problem 2.81
+
+(A) No: x = TMin, y = 0.
+
+(B) Yes: ring properties of two's complement arithmetic
+
+(C) No:  * ~x = 2^w - x - 1
+         * ~y = 2^w - y - 1
+	 * ~x + ~y + 1 = 2^(w+1) - x - y -1
+	 * ~(x+y) = 2^w - x - y - 1
+
+(D) Yes: because of the relationship between unsigned and two's complement arithmetic
+
+(E) Yes: >> rounds towards negative infinity
+

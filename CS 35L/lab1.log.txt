@@ -1,0 +1,66 @@
+1. 
+man man
+/print
+
+2.
+man -k find
+man -k where
+man whereis
+whereis cp
+whereis wc
+
+3.
+man find
+/type
+echo $PATH
+find -P PATH -iname ?
+
+4.
+man cron
+/daylight
+
+5.
+man cc
+
+6.
+man chmod
+
+7.
+man -k find
+man -k where
+man whereis
+
+8.
+man find
+/day
+/modified
+
+9.
+find -mtime -3
+
+10.
+man find
+/symbolic
+/-type
+find -type l
+
+11.
+man ls
+(scroll to bottom)
+
+12.
+man ls
+/find
+/old
+ls -t -l
+
+13.
+man -k wh
+
+14.
+vim test
+:help d
+:help w
+
+15.
+man locale

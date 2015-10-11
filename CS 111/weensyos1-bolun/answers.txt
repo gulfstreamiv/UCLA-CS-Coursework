@@ -1,0 +1,75 @@
+Name:
+	LAST  NAME: HU
+	FIRST NAME: BOLUN 
+
+UCLA ID:      104056403
+
+Collaborators: NONE
+
+-------------------------------------------------------------------------------
+Exercise 1:
+It will return the correct answer.
+The only difference between the use of schedule and run is that schedule will run the system call later after running other runnable processes first. But the answer should be the same since each process has its own register and therefore the data would not be changed by running other processes.
+
+Exercise 2:
+Implemented in the source files.
+
+Exercise 3:
+I added a new variable called waitingIndex to indicate whether a process is waiting for another process. waitingIndex is the process ID that the current process is waiting for. I also changed the schedule function a little bit so that when the process we are waiting for exits, we unlock the blocked process.
+
+Exercise 4:
+The problem is that the process with Zombie status will not be cleaned up to an empty process. I solved this problem by doing a minor change in the interrupt() so that the process with Zombie status will be emptied and reusable.
+
+Extra credit exercises: (P.S. I didn't insert my code for extra credit problem into the source files; instead I put them here as the following. Thank you.)
+
+Finished #6
+My solution for #6:
+
+/*
+static inline pid_t
+sys_newthread(void(*start_function)(void))
+{
+   pid_t p;
+   asm volatile("int %l\n"
+            :"=a" (p)
+            :"i"(INT_SYS_NEWTHREAD),
+             "a" (start_function)
+            :"cc","memory");
+   return p;
+}
+*/
+
+/*
+case INT_SYS_NEWTHREAD:
+{
+	void (*f)(void)=(void(*)(void)) current->p.registers.reg_eax;
+	pid_t p=do_newthread(f,current);
+	current->p_registers.reg_eax=p;
+	run(current);
+}
+*/
+
+/*
+static pid_t
+do_newthread(void(*start_function)(void),process_t *parent)
+{
+	pid_t p=-1;
+	int i = 1;
+	while(i<NPROCS)
+	{
+		if(proc_array[i].p_state == P_EMPTY)
+		{
+			p=i;
+			break;
+		}
+		i++;
+	}
+	if(p==-1)
+	   return -1;
+	special_registers_init(&proc_array[p]);
+	proc_array[p].p_registers.reg_eip=(int)start_function;
+	proc_array[p].p_registers.reg_esp=PROC1_STACK_ADDR+p*PROC_STACK_SIZE;
+	proc_array[p].p_state=P_RUNNABLE;
+	return p;
+}
+*/

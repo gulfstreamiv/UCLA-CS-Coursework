@@ -1,0 +1,76 @@
+2.83
+      return (ux << 1 == 0 && uy << 1 == 0) || /* ux = uy = 0 */
+             (!sx && sy) || /* x >= 0, y < 0 */
+             (!sx && !sy && ux >= uy) || /* x >= 0, y >= 0 */
+             (sx && sy && ux <= uy); /* x < 0, y < 0 */
+2.88
+A. 0x20001
+B. 1
+C. dx:1, dy: 1e10, dz: -1e10 
+D. INT_MAX
+E. 1
+
+2.89
+unsigned f2u(float f)
+{
+        union { float f; unsigned u; } a;
+        a.f = f;
+        return a.u;
+}
+
+float u2f(unsigned x)
+{
+        union { unsigned u; float f; } a;
+        a.u = x;
+        return a.f;
+}
+
+float fpwr2(int x)
+{
+        unsigned exp, frac;
+        unsigned u;
+
+        if (x < -149) {
+                exp = 0;
+                frac = 0;
+        } else if (x < -126) {
+                exp = 0;
+                frac = 1 << (x + 149);
+        } else if (x < 129) {
+                exp = x + 127;
+                frac = 0;
+        } else {
+                exp = 0xFF;
+                frac = 0;
+        }
+
+
+        u = exp << 23 | frac;
+
+        return u2f(u);
+}
+
+3.56
+A. esi: x
+   ebx: n
+   edi: result
+   edx: mask
+
+B. result: 0x55555555
+   mask: 0x80000000
+
+C. mask != 0
+
+D. mask = (unsigned)mask >> (n&0xFF)
+
+E. result ^= x & mask
+
+
+int loop(int x, int n)
+{
+    int result = 0x55555555;
+    int mask;
+    for (mask = 0x80000000; mask != 0; mask = (unsigned)mask & (n&0xFF))
+        result ^= x & mask;
+    return result;
+}

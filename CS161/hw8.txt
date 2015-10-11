@@ -1,0 +1,83 @@
+Bolun Hu UID:104056403
+
+Problem 1
+Generalized product rule: 
+
+Pr(A,B | K) = Pr(A,B,K)/Pr(k) 
+P(A | B ^ K) P(B | K) = (P( A ^ B ^ K) / P(B^ K))*(P(B ^ K) / P(K))
+		      = P(A ^ B ^ K) / P(K)
+Thus they are the same.
+
+Generalized Bayes Rule:
+1. P(A ^ B | C) = P(B | A ^ C) P(A | C) [equivalent
+to derivation in part 'a']
+2. P(B | A ^ C) P(A | C) = P(A | B ^ C) P(B | C)
+[restatement of above with product rule]
+3. P(B | A ^ C) P(A | C) / P(B | C) = P(A | B ^ C)
+[divide both sides by P(B | C)]
+
+Problem 2
+
+Using Bayes Rule and Law of Total Probability:
+Pr(oil being present | test positive) = 
+
+Pr(oil being present,test positive)/Pr(test positive) = 
+
+Pr(test positive|oil being present)*Pr(oil being present)/Pr(test positive) = 
+
+Pr(test positive|oil being present)*Pr(oil being present)/[Pr(test positive|oil presented)*Pr(oil presented)+Pr(test positive|gas presented)*Pr(gas presented)+Pr(test positive|none presented)*Pr(none presented)]
+
+Final answer = .9*.5/(.9*.5+.3*.2+.1*.3) = .83333
+
+
+
+Problem 3
+
+Pr(black)=9/13 ---- alpha 1
+Pr(square)=8/13 ---- alpha 2
+Pr(one)=5/13
+Pr(square,one)=2/13
+Pr(square,black)=6/13
+Pr(one or black)=11/13
+Pr(square,one or black)=7/13
+Pr(square | one or black) = Pr(square,one or black)/Pr(one or black)
+			= (7/13)/(11/13)
+			= 7/11  ---- alpha 3
+
+Problem 4
+(a) notation: Ind(X is independent of; Y | given Z)
+"Each node is independent of its non-descendants given its parents" 
+Thus:
+
+Ind(A; B,E)
+Ind(B; A,C)
+Ind(C; D,B,E | A)
+Ind(D; C,E |A,B)
+Ind(E; A,C,D,F,G | B)
+Ind(F; A,B,E | C,D)
+Ind(G; A,B,C,D,E,H | F)
+Ind(H; A,B,C,D,G | E,F)
+
+(b)
+d_separated(A,BH,E)   
+False. 
+Since H is convergent, and therefore it is open when included by the Z set. A-C-F-H-E is a valid route.
+
+d separated(G,D,E)
+True. 
+D is convergent, thus it is open. F is closed since it is convergent and neither itself nor its descendents appear in Z. 
+H is also closed because neither itself nor its descendents appear in Z set. Thus no route from G to D.
+
+d separated(AB, F,GH)
+First consider case (A,F,G). I treat F as sequential, there is no route.
+Then consider (A,F,H). There is a route: A D B E H. 
+Thus false.
+
+(c)
+Pr(a, b, c, d, e, f, g, h)=Pr(A)*Pr(B)*Pr(C|A)*Pr(D|A,B)*Pr(E|B)*Pr(F|C,D)
+			   *Pr(G|F)*Pr(H|E,F)
+(d)
+
+Pr(A=0,B=0) = Pr(A=0)*Pr(B=0) = .8*.3 = .24
+
+Pr(E=1|A=1) = Pr(E=1,A=1)/P(A=1) 

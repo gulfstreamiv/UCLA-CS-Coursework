@@ -1,0 +1,86 @@
+1.
+man -k keyword
+
+2.
+cp is located at /bin/cp
+wc is located at /usr/bin/wc
+
+3.
+X is a window display for users using the X window system. It lets you display graphic
+windows using linux.
+[ is a synonym for test. It allows comparisons of two files.
+w shows who is logged on to the current server and what they are doing.
+
+4.
+If the command is scheduled to run at 230, if the clock jumps from 2 to 3 it will be run right after the clock shifts.
+If the clock shifts back from 3 to 2 it will not be run a second time.
+
+5.
+Running cc invokes the GNU C compiler. Because no files were passed in to be compiled,
+the program immediately exits.
+
+6.
+The g tag indicates that the all users in the file's group will be affected by the 
+change. The - tag indicates the following file mode bit will be removed, and the 
+s tag indicates the file mode bit is the ability to set user or group ID on execution.
+
+7.
+The whereis command takes a file name as an input and outputs its
+directory. This is useful if you just need to know the location of
+the file.
+
+8.
+You can use the -mtime flag to specify the time at which the file's
+data was last modified. It uses days, so you would use -mtime 3 as the 
+flag to look for something last modified at most 3 days ago.
+
+9.
+(a lot of files)
+./Desktop
+./Desktop/desktop.ini
+./Desktop/Interview questions self solution.txt
+./Desktop/lab1.txt
+./Desktop/lab1.log.txt
+./My Documents
+./My Documents/desktop.ini
+./.bash_history
+./.Xauthority
+./.lesshst
+./.viminfo
+./.swp
+./exer1.html
+./exer2.html
+./exer3.html
+
+
+10.
+You would use the -type l flag to specify you were only looking for
+symbolic links. Running the command
+find -type l
+gives a large list of symbolic links. However we can run
+ls | wc -l
+(given to us by the TA) to count the number of lines/links given.
+It returns 1879 symbolic links.
+
+11.
+"ls" was written by Richard Stallman and David MacKenzie.
+
+12.
+Use the -l flag for ls to give a verbose output, and the 
+-t flag sorts the output by age. Thus you can just enter
+ls -t -l
+and look at the bottommost file, in our case this is:
+-rwxr-xr-x 1 root root  587364 Nov 24  2009 libsqlite3.so.0.8.6
+
+13.
+Command to tell you your name: whoami
+Command to tell you what "whoami" does: whatis whoami
+Command to tell you the location of a program that will
+run if the program is typed at the prompt: whereis theprogram
+
+14.
+dw will delete a word (man vim)
+
+15.
+locale, by default gets it data from /usr/lib/locale (man locale)
+
