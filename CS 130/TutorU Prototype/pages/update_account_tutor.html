@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<!--
+Template Name: Academic Education V2
+Author: <a href="http://www.os-templates.com/">OS Templates</a>
+Author URI: http://www.os-templates.com/
+Licence: Free to use under our free template licence terms
+Licence URI: http://www.os-templates.com/template-terms
+-->
+<html>
+<head>
+<title>TutorU | Account | Register</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link href="../layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
+</head>
+<body id="top">
+<!-- ################################################################################################ --> 
+<!-- ################################################################################################ --> 
+<!-- ################################################################################################ -->
+<div class="wrapper row0">
+  <div id="topbar" class="clear"> 
+    <!-- ################################################################################################ -->
+    <nav>
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="http://cs.ucla.edu">Contact Us</a></li>
+        <li><a href="registration.html">Register Account</a></li>
+        <li><a href="tutor_login.html">Member Login</a></li>
+      </ul>
+    </nav>
+    <!-- ################################################################################################ --> 
+  </div>
+</div>
+<!-- ################################################################################################ --> 
+<!-- ################################################################################################ --> 
+<!-- ################################################################################################ -->
+<div class="wrapper row1">
+  <header id="header" class="clear"> 
+    <!-- ################################################################################################ -->
+    <div id="logo" class="fl_left">
+      <h1><a>Registration Page | TutorU</a></h1> <style>h1{color:white}</style>
+    </div>
+    <div class="fl_right">
+      <form class="clear" method="post" action="#">
+        <fieldset>
+          <legend>Search:</legend>
+          <input type="text" value="" placeholder="Search Here">
+          <button class="fa fa-search" type="submit" title="Search"><em>Search</em></button>
+        </fieldset>
+      </form>
+    <!-- ################################################################################################ --> 
+  </header>
+</div>
+<!-- ################################################################################################ --> 
+<!-- ################################################################################################ --> 
+<!-- ################################################################################################ -->
+<div style="display" class="wrapper row2">
+  <div class="rounded">
+    <nav id="mainav" class="clear"> 
+      <!-- ################################################################################################ -->
+      <ul class="clear">
+        <li><a href="../index.html">Home</a></li>
+        <li style="margin-left:40px;"><a href="http://www.cs.ucla.edu/~miryung/teaching/CS130-Spring2015/main.html">About Us</a></li>
+        <li style="margin-left:40px;"><a href="registration.html">Sign-Up</a></li>
+        <li style="margin-left:40px;"><a href="member_login.html">Member Login</a></li>
+        <li style="margin-left:40px;"><a href="forget_password.html">Retrieve Password</a></li>
+        <li style="margin-left:40px;"><a href="#">FAQs</a></li>
+      </ul>
+      <!-- ################################################################################################ --> 
+    </nav>
+  </div>
+</div>
+
+<!-- ################################################################################################ --> 
+<!-- ################################################################################################ --> 
+<!-- ################################################################################################ -->
+<div class="wrapper row3">
+  <div class="rounded">
+    <main class="container clear"> 
+      <!-- main body --> 
+      <!-- ################################################################################################ -->
+ <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600' rel='stylesheet' type='text/css'>
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
+
+<!-- Pops up only for tutor !-->
+<script type="text/javascript">
+function yesnoCheck() {
+    if (document.getElementById('radioTutor').checked) {
+        document.getElementById('ifTutor').style.visibility = 'visible';
+    }
+    else document.getElementById('ifTutor').style.visibility = 'hidden';
+}
+</script>
+
+<header>
+  <center><h1>Update Account</h1>
+  </center>
+</header>
+
+  <form action="/">
+     
+    <center><div class="accounttype">
+      <input type="radio" value="None" id="radioStudent" name="account" onclick="javascript:yesnoCheck();" checked/>
+      <label for="radioStudent" class="radio" chec>Student</label>
+      <input type="radio" value="None" id="radioTutor" name="account" onclick="javascript:yesnoCheck();"/>
+      <label for="radioTutor" class="radio">Tutor</label>
+    </div></center>
+  <hr>
+  
+  <center><label id="icon" for="name"><i class="fa fa-envelope"></i></label>
+  <input type="text" name="name" id="email_address" placeholder="Email" required/>
+  <label id="icon" for="name"><i class="fa fa-user"></i></label>
+  <input type="text" name="name" id="name" placeholder="Name" required/>
+  <label id="icon" for="name"><i class="fa fa-shield"></i></label>
+  <input type="password" name="name" id="password" placeholder="Password" required/></center><br>
+
+  <center><label id="icon" for="name"><i class="fa fa-mobile"></i></label>
+  <input type="text" name="name" id="mobile" placeholder="Phone Number" required/>
+  <label id="icon" for="name"><i class="fa fa-credit-card"></i></label>
+  <input type="text" name="name" id="credit_card" placeholder="Credit/Debit Card No." optional/>
+  <label id="icon" for="name"><i class="fa fa-shield"></i></label>
+  <input type="password" name="name" id="confirm_password" placeholder="Confirm Password" required/></center>
+
+  <hr>
+
+
+   <p style="font-size:120%"><a><strong><font color="grey">Courses you want to teach (Tutor)</font></strong></a></p><br><br>
+    <div id="ifTutor" style="visibility:hidden">
+        <center>
+        <label><input type="checkbox" name="course" value="Math31A" unchecked>Math 31A | </label>
+        <label><input type="checkbox" name="course" value="Math31B" unchecked>Math 31B | </label>
+        <label><input type="checkbox" name="course" value="Phy1A" unchecked> Physics 1A | </label>
+        <label><input type="checkbox" name="course" value="Phy1B" unchecked> Physics 1B | </label>
+        <label><input type="checkbox" name="course" value="Chem20A" unchecked> Chem 20A | </label>
+        <label><input type="checkbox" name="course" value="CS31" unchecked> CS 31 | </label>
+        <label><input type="checkbox" name="course" value="CS32" unchecked> CS 32 | </label>
+        <label><input type="checkbox" name="course" value="CS35L" unchecked> CS 35L | </label>
+        </center>      
+    </div>
+  <hr>
+
+  <p style="font-size:120%"><a><strong><font color="grey">Update Your Major</strong></a></p>
+ <center><select >
+  <option value ="math">Mathematics</option>
+  <option value ="biz">Business Economics</option>
+  <option value ="phy">Physics</option>
+  <option value="chem">Chemistry</option>
+  <option value="bio">Biology</option>
+  <option value="cs">Computer Science</option>
+  <option value="ee">Electrical Engineering</option>
+  <option value="me">Mechanical Engineering</option>
+  <option value="chemE">Chemical Engineering</option>
+  <option value="MatE">Material Engineering</option>
+</select></center>
+<hr>
+<p style="font-size:120%"><a><strong><font color="grey">Update Your Grade</strong></a></p>
+ <center><select >
+  <option value ="1">Freshman</option>
+  <option value ="2">Sophomore</option>
+  <option value ="3">Junior</option>
+  <option value="4">Senior</option>
+</select></center>
+<hr>
+
+
+       
+
+   <p style="float:left;">
+   <a href="tutor_portal.html" class="button blue skew" style="margin-top:20px;" >Back</a>
+   </p>
+  </form>
+<input type="button" class="button blue skew" id="sub" onclick="myFunction()" style="float:right;margin-top:20px;" value="Update"></input>
+<script>
+function myFunction() {
+    if (confirm("ATTENTION: You are about to update your account! Please ensure your input information is correct and accurate.") == true) {
+        window.location="../index.html";
+    } 
+}
+</script>
+
+<style>
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, 
+pre, form, fieldset, input, textarea, p, blockquote, th, td { 
+  padding:0;
+  margin:0;}
+
+input[type="radio"] {
+    display:inline-block;
+}
+
+input[type="text"] {
+    display:inline-block;
+}
+
+input[type="password"] {
+    display:inline-block;
+}
+
+label {
+    display:inline-block;
+}
+
+fieldset, img {border:0}
+
+ol, ul, li {list-style:none}
+
+:focus {outline:none}
+
+body,
+input,
+textarea,
+select {
+  
+  ]
+  color: #4c4c4c;
+}
+
+p {
+  font-size: 12px;
+  width: 300px;
+  display: inline-block;
+  margin-left: 18px;
+}
+h1 {
+  font-size: 32px;
+  font-weight: 300;
+  color: #4c4c4c;
+  text-align: center;
+  padding-top: 10px;
+  margin-bottom: 10px;
+}
+
+html{
+  background-color: #ffffff;
+}
+
+.testbox {
+  margin: 20px auto;
+  width: 343px; 
+  height: 464px; 
+  -webkit-border-radius: 8px/7px; 
+  -moz-border-radius: 8px/7px; 
+  border-radius: 8px/7px; 
+  background-color: #ebebeb; 
+  -webkit-box-shadow: 1px 2px 5px rgba(0,0,0,.31); 
+  -moz-box-shadow: 1px 2px 5px rgba(0,0,0,.31); 
+  box-shadow: 1px 2px 5px rgba(0,0,0,.31); 
+  border: solid 1px #cbc9c9;
+}
+
+input[type=radio] {
+  visibility: hidden;
+}
+
+form{
+  margin: 0 30px;
+}
+
+label.radio {
+  cursor: pointer;
+  text-indent: 35px;
+  overflow: visible;
+  display: inline-block;
+  position: relative;
+  margin-bottom: 15px;
+}
+
+label.radio:before {
+  background: #3a57af;
+  content:'';
+  position: absolute;
+  top:2px;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+}
+
+label.radio:after {
+  opacity: 0;
+  content: '';
+  position: absolute;
+  width: 0.5em;
+  height: 0.25em;
+  background: transparent;
+  top: 7.5px;
+  left: 4.5px;
+  border: 3px solid #ffffff;
+  border-top: none;
+  border-right: none;
+
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+input[type=radio]:checked + label:after {
+  opacity: 1;
+}
+
+hr{
+  color: #a9a9a9;
+  opacity: 0.3;
+}
+
+input[type=text],input[type=password]{
+  width: 200px; 
+  height: 39px; 
+  -webkit-border-radius: 0px 4px 4px 0px/5px 5px 4px 4px; 
+  -moz-border-radius: 0px 4px 4px 0px/0px 0px 4px 4px; 
+  border-radius: 0px 4px 4px 0px/5px 5px 4px 4px; 
+  background-color: #fff; 
+  -webkit-box-shadow: 1px 2px 5px rgba(0,0,0,.09); 
+  -moz-box-shadow: 1px 2px 5px rgba(0,0,0,.09); 
+  box-shadow: 1px 2px 5px rgba(0,0,0,.09); 
+  border: solid 1px #cbc9c9;
+  margin-left: -5px;
+
+  padding-left: 10px;
+}
+
+
+#icon {
+  display: inline-block;
+  width: 40px;
+  background-color: #3a57af;
+  padding: 8px 5px 8px 5px;
+  margin-left: 15px;
+  -webkit-border-radius: 4px 0px 0px 4px; 
+  -moz-border-radius: 4px 0px 0px 4px; 
+  border-radius: 4px 0px 0px 4px;
+  color: white;
+  -webkit-box-shadow: 1px 2px 5px rgba(0,0,0,.09);
+  -moz-box-shadow: 1px 2px 5px rgba(0,0,0,.09); 
+  box-shadow: 1px 2px 5px rgba(0,0,0,.09); 
+  border: solid 0px #cbc9c9;
+}
+
+.gender {
+  margin-left: 22px;
+  margin-bottom: 22px;
+  margin-top: 25px;
+}
+
+.accounttype{
+  margin-left: 8px;
+  margin-bottom: 22px;
+  margin-top: 25px;
+}
+
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans:bold+Lobster);
+@import url(http://fonts.googleapis.com/css?family=Lobster);
+
+
+
+/* -------------- THE button -------------- */
+.button {
+
+/* text */
+  text-decoration:    none;
+  font:           24px/1em 'Georgia', sans-serif;
+  font-weight:      bold;
+  text-shadow:      rgba(255,255,255,.5) 0 1px 0;
+  -webkit-user-select:  none;
+  -moz-user-select:     none;
+  user-select:      none;
+  
+  
+/* layout */
+  padding:        .5em .6em .4em .6em;
+  margin:         .5em;
+  display:        inline-block;
+  position:         relative;
+  
+  -webkit-border-radius:  8px;
+  -moz-border-radius:   8px;
+  border-radius:  8px;
+  
+/* effects */
+  border-top:     1px solid rgba(255,255,255,0.8);
+  border-bottom:    1px solid rgba(0,0,0,0.1);
+  
+  background-image:   -webkit-gradient(radial, 50% 0, 100, 50% 0, 0, from( rgba(255,255,255,0) ), to( rgba(255,255,255,0.7) )), url(http://iwantaneff.in/t/http://iwantaneff.in/t/noise.png);
+  background-image:   -moz-radial-gradient(top, ellipse cover, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0) 100%), url(http://iwantaneff.in/t/http://iwantaneff.in/t/noise.png);
+  background-image:   gradient(radial, 50% 0, 100, 50% 0, 0, from( rgba(255,255,255,0) ), to( rgba(255,255,255,0.7) )), url(http://iwantaneff.in/t/http://iwantaneff.in/t/noise.png);
+
+  -webkit-transition: background .2s ease-in-out;
+  -moz-transition:  background .2s ease-in-out;
+  transition:     background .2s ease-in-out;
+  
+/* color */
+  color:        hsl(0, 0%, 40%) !important;
+  background-color:   hsl(0, 0%, 75%);
+  
+  -webkit-box-shadow: inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ 
+            hsl(0, 0%, 60%) 0 .1em 3px, hsl(0, 0%, 45%) 0 .3em 1px, /* color border */
+            rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
+  -moz-box-shadow:  inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ 
+            hsl(0, 0%, 60%) 0 .1em 3px, hsl(0, 0%, 45%) 0 .3em 1px, /* color border */
+            rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
+  box-shadow:     inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ 
+            hsl(0, 0%, 60%) 0 .1em 3px, hsl(0, 0%, 45%) 0 .3em 1px, /* color border */
+            rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
+}
+
+/* -------------- button (tag) -------------- */
+
+button.button {
+  border-left: none;
+  border-right: none;
+}
+button.button:hover {
+  cursor: pointer;
+}
+
+
+/* -------------- icon -------------- */
+.button:before {
+  font:       1.2em/0 'Pictos', sans-serif;
+  content:    attr(data-icon); /* gets the icon value from the custom data attribute and puts it infront of the button label */
+  margin-right:   0.4em;
+  
+  
+}
+/* icon only */
+.icon {
+  font-weight: normal;
+  font-style: normal;
+  text-indent:  -999em;
+}
+.icon:before { 
+  margin-right:   0;
+  display:    block;
+  height:     0;
+  text-indent:  0px;  
+}
+
+
+
+/* -------------- colours -------------- */
+
+.button.orange {
+  color:        hsl(39, 100%, 30%) !important;
+  background-color:   hsl(39, 100%, 50%);
+
+  -webkit-box-shadow: inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ 
+              hsl(39, 100%, 40%) 0 .1em 3px, hsl(39, 100%, 30%) 0 .3em 1px, /* color border */
+              rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
+  -moz-box-shadow:  inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ 
+              hsl(39, 100%, 40%) 0 .1em 3px, hsl(39, 100%, 30%) 0 .3em 1px, /* color border */
+              rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
+  box-shadow:     inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ 
+              hsl(39, 100%, 40%) 0 .1em 3px, hsl(39, 100%, 30%) 0 .3em 1px, /* color border */
+              rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
+}
+.button.orange:hover {  background-color: hsl(39, 100%, 65%); }
+
+
+.button.blue {
+  color:        hsl(208, 50%, 40%) !important;
+  background-color:   hsl(208, 100%, 75%);
+  
+  -webkit-box-shadow: inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ 
+              hsl(208, 50%, 55%) 0 .1em 3px, hsl(208, 50%, 40%) 0 .3em 1px, /* color border */
+              rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
+  -moz-box-shadow:  inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ 
+              hsl(208, 50%, 55%) 0 .1em 3px, hsl(208, 50%, 40%) 0 .3em 1px, /* color border */
+              rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
+  box-shadow:     inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ 
+              hsl(208, 50%, 55%) 0 .1em 3px, hsl(208, 50%, 40%) 0 .3em 1px, /* color border */
+              rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
+}
+.button.blue:hover {  background-color: hsl(208, 100%, 83%); }
+
+.button.green {
+  color:        hsl(88, 70%, 30%) !important;
+  background-color:   hsl(88, 70%, 60%);
+  -webkit-box-shadow: inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ 
+              hsl(88, 70%, 40%) 0 .1em 3px, hsl(88, 70%, 30%) 0 .3em 1px, /* color border */
+              rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
+  -moz-box-shadow:  inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ 
+              hsl(88, 70%, 40%) 0 .1em 3px, hsl(88, 70%, 30%) 0 .3em 1px, /* color border */
+              rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
+  box-shadow:     inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ 
+              hsl(88, 70%, 40%) 0 .1em 3px, hsl(88, 70%, 30%) 0 .3em 1px, /* color border */
+              rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
+}
+.button.green:hover {   background-color: hsl(88, 70%, 75%); }
+
+.button.pink {
+  color:        hsl(340, 100%, 30%) !important;
+  background-color:   hsl(340, 100%, 75%);
+  -webkit-box-shadow: inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ 
+              hsl(340, 70%, 50%) 0 .1em 3px, hsl(340, 80%, 40%) 0 .3em 1px, /* color border */
+              rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
+  -moz-box-shadow:  inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ 
+              hsl(340, 70%, 50%) 0 .1em 3px, hsl(340, 80%, 40%) 0 .3em 1px, /* color border */
+              rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
+  box-shadow:     inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ 
+              hsl(340, 70%, 50%) 0 .1em 3px, hsl(340, 80%, 40%) 0 .3em 1px, /* color border */
+              rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
+}
+.button.pink:hover {  background-color: hsl(340, 100%, 83%); }
+
+
+
+.button.transparent {
+  color:  rgba(0,0,0,0.5) !important;
+}
+.button.transparent, .button.transparent:hover, .button.transparent:active {
+  background-color: transparent;
+  background-image: none;
+}
+.button.transparent:hover {
+  opacity: .9;
+}
+
+
+
+/* -------------- States -------------- */
+
+.button:hover {
+  background-color:   hsl(0, 0%, 83%);
+}
+
+
+
+.button:active {
+  background-image:   -webkit-gradient(radial, 50% 0, 100, 50% 0, 0, from( rgba(255,255,255,0) ), to( rgba(255,255,255,0) )), url(http://iwantaneff.in/t/noise.png);
+  background-image:   -moz-gradient(radial, 50% 0, 100, 50% 0, 0, from( rgba(255,255,255,0) ), to( rgba(255,255,255,0) )), url(http://iwantaneff.in/t/noise.png);
+  background-image:   gradient(radial, 50% 0, 100, 50% 0, 0, from( rgba(255,255,255,0) ), to( rgba(255,255,255,0) )), url(http://iwantaneff.in/t/noise.png);
+
+  -webkit-box-shadow: inset rgba(255,255,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.2) 0 -0.1em .3em, /* inner shadow */ 
+              rgba(0,0,0,0.4) 0 .1em 1px, /* border */
+              rgba(0,0,0,0.2) 0 .2em 6px; /* drop shadow */
+  -moz-box-shadow:  inset rgba(255,255,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.2) 0 -0.1em .3em, /* inner shadow */ 
+              rgba(0,0,0,0.4) 0 .1em 1px, /* border */
+              rgba(0,0,0,0.2) 0 .2em 6px; /* drop shadow */
+  box-shadow:     inset rgba(255,255,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.2) 0 -0.1em .3em, /* inner shadow */ 
+              rgba(0,0,0,0.4) 0 .1em 1px, /* border */
+              rgba(0,0,0,0.2) 0 .2em 6px; /* drop shadow */
+
+  -webkit-transform:  translateY(.2em);
+  -moz-transform:   translateY(.2em);
+  transform:      translateY(.2em);
+}
+
+.button:focus {
+  outline: none;
+  color: rgba(254,255,255,0.9) !important;
+  text-shadow: rgba(0,0,0,0.2) 0 1px 2px;
+}
+
+.button[disabled], .button[disabled]:hover, .button.disabled, .button.disabled:hover {
+  opacity:      .5;
+  cursor:       default;
+  color:        rgba(0,0,0,0.2) !important;
+  text-shadow:    none !important;
+  background-color:   rgba(0,0,0,0.05);
+  background-image:   none;
+  border-top:     none;
+
+  -webkit-box-shadow: inset rgba(255,254,255,0.4) 0 0.3em .3em, inset rgba(0,0,0,0.1) 0 -0.1em .3em, /* inner shadow */ 
+              rgba(0,0,0,0.3) 0 .1em 1px, /* border */
+              rgba(0,0,0,0.2) 0 .2em 6px; /* drop shadow */
+  -moz-box-shadow:  inset rgba(255,254,255,0.4) 0 0.3em .3em, inset rgba(0,0,0,0.1) 0 -0.1em .3em, /* inner shadow */ 
+              rgba(0,0,0,0.3) 0 .1em 1px, /* border */
+              rgba(0,0,0,0.2) 0 .2em 6px; /* drop shadow */
+  box-shadow:     inset rgba(255,254,255,0.4) 0 0.3em .3em, inset rgba(0,0,0,0.1) 0 -0.1em .3em, /* inner shadow */ 
+              rgba(0,0,0,0.3) 0 .1em 1px, /* border */
+              rgba(0,0,0,0.2) 0 .2em 6px; /* drop shadow */
+
+  -webkit-transform:  translateY(5px);
+  -moz-transform:   translateY(5px);
+  transform:      translateY(5px);
+}
+
+/* -------------- Fonts -------------- */
+
+.serif { 
+  font-family: 'Lobster', serif;
+  font-weight:      normal;
+}
+
+
+/* -------------- Sizes -------------- */
+
+.xs { font-size: 16px; }
+.xl { font-size: 32px; }
+
+
+/* -------------- Materials -------------- */
+
+.button.glossy:after, .button.glass:after {
+  content:  "";
+  position:   absolute; 
+    width:    90%;
+    height:   60%;
+    top:    0;
+    left:     5%;    
+    
+    -webkit-border-radius:  .5em .5em 1em 1em / .5em .5em 2em 2em;    
+    -moz-border-radius:   .5em .5em 1em 1em / .5em .5em 2em 2em;
+    border-radius:      .5em .5em 1em 1em / .5em .5em 2em 2em;
+    
+    background-image:     -webkit-gradient(linear, 0% 0, 100% 0, from( rgba(255,255,255,.55) ), to( rgba(255,255,255,.5) ),
+                  color-stop(.5, rgba(255,255,255,0)), color-stop(.8, rgba(255,255,255,0)) ); 
+    background-image:     -moz-linear-gradient(left, rgba(255,255,255,.55), rgba(255,255,255,0) 50%, rgba(255,255,255,0) 80%, rgba(255,255,255,.5) ); 
+    background-image:     gradient(linear, 0% 0, 100% 0, from( rgba(255,255,255,.55) ), to( rgba(255,255,255,.5) ),
+                  color-stop(.5, rgba(255,255,255,0)), color-stop(.8, rgba(255,255,255,0)) ); 
+}
+.button.glossy:active:after,
+.button.glass:active:after,
+.button.disabled:after,
+.button[disabled]:after
+ { opacity: .6; }
+
+.button.icon.glossy:after,
+.button.icon.glass:after { height: 75% ; }
+
+/* -------------- Glass + Transparent -------------- */
+.button.glass {
+  text-shadow: rgba(255,255,255,.5) 0 -1px 0, rgba(0,0,0,0.18) 0 .18em .15em;
+}
+.button.glass:active {
+  text-shadow: rgba(255,255,255,.3) 0 1px 0, rgba(0,0,0,0.15) 0 .18em .15em;
+}
+
+
+/* -------------- Shapes -------------- */
+
+/* round */
+.round, .round.glossy:after, .round.glass:after { 
+  border-top: none; 
+  -webkit-border-radius:  1em; 
+  -moz-border-radius:   1em; 
+  border-radius:      1em; 
+}
+
+/* oval */
+.oval {
+  border-top:       none; 
+  padding-left:       .8em;
+  padding-right:      .8em;
+  -webkit-border-radius:  5em / 2em; 
+  -moz-border-radius:   5em / 2em; 
+  border-radius:      5em / 2em; 
+}
+.oval.glossy:after, .oval.glass:after {   
+  top:          5%;
+  -webkit-border-radius:  5em / 2em 2em 1em 1em; 
+  -moz-border-radius:   5em / 2em 2em 1em 1em; 
+  border-radius:      5em / 2em 2em 1em 1em; 
+}
+.oval.icon {
+  padding-left:       .8em;
+  padding-right:      .8em; 
+  -webkit-border-radius:  1.5em / 1em; 
+  -moz-border-radius:   1.5em / 1em; 
+  border-radius:      1.5em / 1em; 
+}
+.oval.icon.glossy:after, .oval.icon.glass:after { 
+  -webkit-border-radius:  1.5em / 1em; 
+  -moz-border-radius:   1.5em / 1em; 
+  border-radius:      1.5em / 1em; 
+}
+
+/* brackets */
+.brackets, .brackets.glossy:after, .brackets.glass:after { 
+  border-top:       none; 
+  -webkit-border-radius:  .5em / 1em;
+  -moz-border-radius:   .5em / 1em;
+  border-radius:      .5em / 1em;
+}
+
+/* skew */
+.skew { 
+  border-top:       none; 
+  padding-right:      1.2em;
+  padding-left:       0.8em;  
+  -webkit-border-radius:  5em 1em / 5em 1em;  
+  -moz-border-radius:   5em 1em / 5em 1em;  
+  border-radius:      5em 1em / 5em 1em;  
+}
+.skew.glossy:after, .skew.glass:after {   
+  left: 10%;
+  -webkit-border-radius:  7em 1em / 5em 1em;
+  -moz-border-radius:   7em 1em / 5em 1em;
+  border-radius:      7em 1em / 5em 1em;
+}
+.skew.icon {  
+  padding-right:      .9em;
+  padding-left:       .8em;
+}
+
+/* back */
+.back, .back.glossy:after, .back.glass:after { 
+  border-top-color:     rgba(255,255,255,0.5);
+  -webkit-border-radius:  1.6em 1.6em 1em 1em / 4em 4em 1em 1em; 
+  -moz-border-radius:   1.6em 1.6em 1em 1em / 4em 4em 1em 1em; 
+  border-radius:      1.6em 1.6em 1em 1em / 4em 4em 1em 1em; 
+}
+.back.glossy:after, .back.glass:after { 
+   left:  6%;
+   width: 88%;
+}
+
+/* knife */
+.knife {            
+  padding-left: 1.5em;
+  -webkit-border-radius:  .2em .5em .5em 8em / .2em .5em .5em 5em; 
+  -moz-border-radius:   .2em .5em .5em 8em / .2em .5em .5em 5em; 
+  border-radius:      .2em .5em .5em 8em / .2em .5em .5em 5em; 
+}
+.knife.glossy:after, .knife.glass:after {
+  left:           3%;
+  width:          97%;    
+  -webkit-border-radius:  .1em .5em .5em 8em / .1em .5em .5em 2em;   
+  -moz-border-radius:   .1em .5em .5em 8em / .1em .5em .5em 2em;   
+  border-radius:      .1em .5em .5em 8em / .1em .5em .5em 2em;   
+}
+.knife.glossy.icon:after, .knife.glass.icon:after { 
+  left:           5%; 
+  width:          95%;
+  -webkit-border-radius:  .5em .5em 1em 6em / .5em .5em 1em 4em; 
+  -moz-border-radius:   .5em .5em 1em 6em / .5em .5em 1em 4em; 
+  border-radius:      .5em .5em 1em 6em / .5em .5em 1em 4em; 
+}
+
+/* shield */
+.shield, .shield.glossy:after, .shield.glass:after { 
+  -webkit-border-radius:  .4em .4em 2em 2em / .4em .4em 3em 3em; 
+  -moz-border-radius:   .4em .4em 2em 2em / .4em .4em 3em 3em;
+  border-radius:      .4em .4em 2em 2em / .4em .4em 3em 3em;
+}
+.shield {               
+  padding-left:   .8em;
+  padding-right:  .8em;
+}
+.shield.icon {            
+  padding-left:   .6em; 
+  padding-right:  .6em;
+}
+
+/* drop */
+.drop {
+  border-top: none;
+  -webkit-border-radius:  2em 5em  2em .6em / 2em 4em 2em .6em; 
+  -moz-border-radius:   2em 5em  2em .6em / 2em 4em 2em .6em; 
+  border-radius:      2em 5em  2em .6em / 2em 4em 2em .6em; 
+}
+.drop.glossy:after, .drop.glass:after { 
+  left: 4%;
+  -webkit-border-radius:  2em 6em  2em 1em / 2em 4em 2em 2em; 
+  -moz-border-radius:   2em 6em  2em 1em / 2em 4em 2em 2em;
+  border-radius:      2em 6em  2em 1em / 2em 4em 2em 2em;
+}
+.drop.icon {  
+  padding-right: .6em; 
+}
+
+
+/* morph */
+.morph {
+  border-top: none;
+  -webkit-border-radius:  5em / 2em;
+  -moz-border-radius:   5em / 2em;
+  border-radius:      5em / 2em;
+  -webkit-transition:   -webkit-border-radius .3s ease-in-out;
+  -moz-transition:    -moz-border-radius .3s ease-in-out;
+  transition:       -moz-border-radius .3s ease-in-out;
+}
+.morph:hover { 
+  -webkit-border-radius:  .4em .4em 2em 2em / .4em .4em 3em 3em;
+  -moz-border-radius:   .4em .4em 2em 2em / .4em .4em 3em 3em;
+  border-radius:      .4em .4em 2em 2em / .4em .4em 3em 3em;
+}
+.morph:active { 
+  -webkit-border-radius:  .3em;
+  -moz-border-radius:   .3em;
+  border-radius:      .3em;
+}
+.morph:after { 
+  display: none;
+}
+
+
+
+
+/* Some ugly hacks for FF. 
+Thanks to David Hund for some help - http://valuedstandards.com/static/test/buttons/ */
+@-moz-document url-prefix() {
+  .button { text-align: center; }
+  .icon { padding: .5em 1em; }
+  .icon:before { margin-left: -.42em; float: left; }
+  
+  .drop.icon { padding-right: 1.1em; }
+  .shield.icon { padding-left: 1.1em; padding-right: 1.1em; }
+  .skew.icon { padding-right: 1.4em; padding-left: 1.3em; }
+  .oval.icon { padding-left: 1.3em; padding-right: 1.3em; }
+  .knife { padding-left: 2em; }
+}
+
+
+
+
+/* Damn, this became a fat baby..  */
+</style>
+
+
+
+      <!-- ################################################################################################ --> 
+      <!-- ################################################################################################ -->
+      <!-- ################################################################################################ --> 
+      <!-- / main body -->
+      <div class="clear"></div>
+    </main>
+  </div>
+</div>
+<!-- ################################################################################################ --> 
+<!-- ################################################################################################ --> 
+<!-- ################################################################################################ -->
+<div class="wrapper row4">
+  <div class="rounded">
+    <footer id="footer" class="clear"> 
+      <!-- ################################################################################################ -->
+      <div class="one_third first">
+        <figure class="center"><img class="btmspace-15" src="../images/demo/worldmap.png" alt="">
+          <figcaption><a href="#">Find Us With Google Maps &raquo;</a></figcaption>
+        </figure>
+      </div>
+      <div class="one_third">
+        <address>
+        TutorU Corporation<br>
+        405 Hilgard Avenue<br>
+        Los Angeles, CA<br>
+        90095<br>
+        <br>
+        <i class="fa fa-phone pright-10"></i> xxxx xxxx xxxxxx<br>
+        <i class="fa fa-envelope-o pright-10"></i> <a href="#">adm@tutoru.com</a>
+        </address>
+      </div>
+      <div class="one_third">
+        <p class="nospace btmspace-10">Stay Up to Date With What's Happening</p>
+        <ul class="faico clear">
+          <li><a class="faicon-twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+          <li><a class="faicon-linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+          <li><a class="faicon-facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+          <li><a class="faicon-flickr" href="#"><i class="fa fa-flickr"></i></a></li>
+          <li><a class="faicon-rss" href="#"><i class="fa fa-rss"></i></a></li>
+        </ul>
+        <form class="clear" method="post" action="#">
+          <fieldset>
+            <legend>Subscribe To Our Newsletter:</legend>
+            <input type="text" value="" placeholder="Enter Email Here&hellip;">
+            <button class="fa fa-sign-in" type="submit" title="Sign Up"><em>Sign Up</em></button>
+          </fieldset>
+        </form>
+      </div>
+      <!-- ################################################################################################ --> 
+    </footer>
+  </div>
+</div>
+
+
+<!-- ################################################################################################ --> 
+<!-- ################################################################################################ --> 
+<!-- ################################################################################################ -->
+<div class="wrapper row5">
+  <div id="copyright" class="clear"> 
+    <!-- ################################################################################################ -->
+    <p class="fl_left">Copyright &copy; 2015 - All Rights Reserved - <a href="#">Domain Name</a></p>
+    <p class="fl_right">Template by <a target="_blank" href="http://www.os-templates.com/" title="Free Website Templates">OS Templates</a></p>
+    <!-- ################################################################################################ --> 
+  </div>
+</div>
+<!-- JAVASCRIPTS --> 
+<script src="../layout/scripts/jquery.min.js"></script> 
+<script src="../layout/scripts/jquery.fitvids.min.js"></script> 
+<script src="../layout/scripts/jquery.mobilemenu.js"></script> 
+<script src="../layout/scripts/nivo-lightbox/nivo-lightbox.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<!--
+Template Name: Academic Education V2
+Author: <a href="http://www.os-templates.com/">OS Templates</a>
+Author URI: http://www.os-templates.com/
+Licence: Free to use under our free template licence terms
+Licence URI: http://www.os-templates.com/template-terms
+-->
+<html>
+<head>
+<title>TutorU | Account | Register</title>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link href="../layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
+
+<!-- Payment JavaScript -->
+<script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
+<script src='payment.js'></script>
+
+<!-- ********** ADD FIREBASE and .js file ******** -->
+<script src="https://cdn.firebase.com/js/client/2.2.1/firebase.js"></script>
+<script src="username_logout.js"></script>
+
+
+
+<!-- -->
+    <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <title>Custom Login Form Styling</title>
+        <meta name="description" content="Custom Login Form Styling with CSS3" />
+        <meta name="keywords" content="css3, login, form, custom, input, submit, button, html5, placeholder" />
+        <meta name="author" content="Codrops" />
+        <link rel="shortcut icon" href="../favicon.ico"> 
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+    <script src="js/modernizr.custom.63321.js"></script>
+    <!--[if lte IE 7]><style>.main{display:none;} .support-note .note-ie{display:block;}</style><![endif]-->
+    <style> 
+      @import url(http://fonts.googleapis.com/css?family=Raleway:400,700);
+      body {
+        font:georgia;
+        background: #001F3D;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        background-size: cover;
+      }
+      .container > header h1,
+      .container > header h2 {
+        color: #fff;
+        text-shadow: 0 1px 1px rgba(0,0,0,0.7);
+      }   
+    </style>
+</head>
+<body onload='init()' id="top">
+<!-- ################################################################################################ --> 
+<!-- ################################################################################################ --> 
+<!-- ################################################################################################ -->
+<div class="wrapper row0">
+  <div id="topbar" class="clear"> 
+    <!-- ################################################################################################ -->
+    <nav>
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="registration.html">Register Account</a></li>
+        <li><a href="tutor_login.html">Member Login</a></li>
+		<li><p id= "demo"></p></li>
+      </ul>
+    </nav>
+    <!-- ################################################################################################ --> 
+  </div>
+</div>
+<!-- ################################################################################################ --> 
+<!-- ################################################################################################ --> 
+<!-- ################################################################################################ -->
+<div class="wrapper row1">
+  <header id="header" class="clear"> 
+    <!-- ################################################################################################ -->
+    <div id="logo" class="fl_left">
+      <h1><a>Payment | TutorU</a></h1> <style>h1{color:white}</style>
+    </div>
+    <div class="fl_right">
+      <form class="clear" method="post" action="#">
+        <fieldset>
+          <legend>Search:</legend>
+          <input type="text" value="" placeholder="Search Here">
+          <button class="fa fa-search" type="submit" title="Search"><em>Search</em></button>
+        </fieldset>
+      </form>
+    <!-- ################################################################################################ --> 
+  </header>
+</div>
+<!-- ################################################################################################ --> 
+<!-- ################################################################################################ --> 
+<!-- ################################################################################################ -->
+<div style="display" class="wrapper row2">
+  <div class="rounded">
+    <nav id="mainav" class="clear"> 
+      <!-- ################################################################################################ -->
+      <ul class="clear">
+        <li><a href="../index.html">Home</a></li>
+        <li style="margin-left:40px;"><a href="http://www.cs.ucla.edu/~miryung/teaching/CS130-Spring2015/main.html">About Us</a></li>
+        <li style="margin-left:40px;"><a href="registration.html">Sign-Up</a></li>
+        <li style="margin-left:40px;"><a href="member_login.html">Member Login</a></li>
+        <li style="margin-left:40px;"><a href="forget_password.html">Retrieve Password</a></li>
+        <li style="margin-left:40px;"><a href="#">FAQs</a></li>
+      </ul>
+      <!-- ################################################################################################ --> 
+    </nav>
+  </div>
+</div>
+
+<!-- ################################################################################################ --> 
+<!-- ################################################################################################ --> 
+<!-- ################################################################################################ -->
+<div class="wrapper row3">
+  <div class="rounded">
+    <main class="container clear"> 
+      <!-- main body --> 
+      <!-- ################################################################################################ -->
+ <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600' rel='stylesheet' type='text/css'>
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
+
+
+    <div class="container">
+      <header>
+      
+        <h1><a>Make Payment </a></h1>
+        
+      </header>
+     <center><div class="checkout">
+  
+  <p style="margin-bottom:15px;"><a><strong>You are about to finalize:</strong><a></p>
+  <p style="margin-bottom:15px;"><a id='idInfo'><strong></strong><a></p>
+  <p style="margin-bottom:15px;"><a id='idFee'><strong></strong><a></p>
+ 
+
+  <p style="margin-bottom:30px;">Enter your payment information below. <strong> Please note, </strong> if you have already provided us your card information during registration, you do not need to enter your card number again.</p>
+  
+  <center><div class="card" style="margin-bottom:15px;">
+    <div class="front side">
+      <span class="company" style="float:left;">
+        YOUR CREDIT/DEBIT CARD
+      </span><img class="item" title="Image of Visa" src="visa.png" height="200" width="200"/><br>
+      <input type="text" placeholder="Card Number (Optional)" class="cc-num" />
+      <div>
+        <p style="float:left;">Expiration Date:</p><br>
+        <input type="text" placeholder="MM/YY" class="cc-exp" style="float:left;"/><br>
+
+       <p style="float:left;"> CVC: </p><br>
+       <input type="text" placeholder="000" class="cc-cvc" maxlength="4" style="float:left;"/>
+      
+      </div>
+    </div>
+    
+
+  </div></center>
+  
+  
+  <p style="margin-bottom:15px;">Please enter your billing information below:</p>
+   <div class="addr">
+    <input type="text" placeholder="Name" />
+   <input type="text" placeholder="Address Line 1" />
+    <input type="text" placeholder="Address Line 2 (Optional)" />
+    <input type="text" placeholder="City" />
+    <input type="text" placeholder="Zip Code" />
+    <input type="text" placeholder="Country" />
+   </div>
+</div> </center>
+
+
+    </div>
+    
+  <hr>
+  
+
+  <section class="main">
+  
+    <a href="confirm_tutor.html"  class="button blue skew" style="float:left; margin-top:20px;">Back</a>
+    <button class="button blue skew" id="sub" onclick="submit()" style="float:right;">Submit</button>
+   
+    
+  </section>
+ 
+  </div>
+
+
+
+      <!-- ################################################################################################ --> 
+      <!-- ################################################################################################ -->
+      <!-- ################################################################################################ --> 
+      <!-- / main body -->
+      <div class="clear"></div>
+    </main>
+  </div>
+</div>
+<!-- ################################################################################################ --> 
+<!-- ################################################################################################ --> 
+<!-- ################################################################################################ -->
+<div class="wrapper row4">
+  <div class="rounded">
+    <footer id="footer" class="clear"> 
+      <!-- ################################################################################################ -->
+      <div class="one_third first">
+        <figure class="center"><img class="btmspace-15" src="../images/demo/worldmap.png" alt="">
+          <figcaption><a href="#">Find Us With Google Maps &raquo;</a></figcaption>
+        </figure>
+      </div>
+      <div class="one_third">
+        <address>
+        TutorU Corporation<br>
+        405 Hilgard Avenue<br>
+        Los Angeles, CA<br>
+        90095<br>
+        <br>
+        <i class="fa fa-phone pright-10"></i> xxxx xxxx xxxxxx<br>
+        <i class="fa fa-envelope-o pright-10"></i> <a href="#">adm@tutoru.com</a>
+        </address>
+      </div>
+      <div class="one_third">
+        <p class="nospace btmspace-10">Stay Up to Date With What's Happening</p>
+        <ul class="faico clear">
+          <li><a class="faicon-twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+          <li><a class="faicon-linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+          <li><a class="faicon-facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+          <li><a class="faicon-flickr" href="#"><i class="fa fa-flickr"></i></a></li>
+          <li><a class="faicon-rss" href="#"><i class="fa fa-rss"></i></a></li>
+        </ul>
+        <form class="clear" method="post" action="#">
+          <fieldset>
+            <legend>Subscribe To Our Newsletter:</legend>
+            <input type="text" value="" placeholder="Enter Email Here&hellip;">
+            <button class="fa fa-sign-in" type="submit" title="Sign Up"><em>Sign Up</em></button>
+          </fieldset>
+        </form>
+      </div>
+      <!-- ################################################################################################ --> 
+    </footer>
+  </div>
+</div>
+<!-- ################################################################################################ --> 
+<!-- ################################################################################################ --> 
+<!-- ################################################################################################ -->
+<div class="wrapper row5">
+  <div id="copyright" class="clear"> 
+    <!-- ################################################################################################ -->
+    <p class="fl_left">Copyright &copy; 2015 - All Rights Reserved - <a href="#">Domain Name</a></p>
+    <p class="fl_right">Template by <a target="_blank" href="http://www.os-templates.com/" title="Free Website Templates">OS Templates</a></p>
+    <!-- ################################################################################################ --> 
+  </div>
+</div>
+<!--####################### -->
+
+<style>
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans:bold+Lobster);
+@import url(http://fonts.googleapis.com/css?family=Lobster);
+
+p.para {
+    line-height: 200%;
+    margin-bottom: 15px;
+}
+
+/* -------------- THE button -------------- */
+
+
+@import url(http://fonts.googleapis.com/css?family=Roboto+Slab:300|Roboto|Allura);
+
+
+body, input{
+  font-family: "Roboto";
+  font-size: 1em;
+}
+h1, .credit{
+  font-family: "Roboto Slab";
+}
+.credit{
+  text-align: center;
+  font-size: 0.7em;
+  padding: 10px;
+}
+
+.item{
+  width: 60px;
+  vertical-align: middle;
+  margin-right: 15px;
+}
+.card .company{
+  box-sizing: border-box;
+  float: right;
+}
+.card{
+  position: relative;
+  perspective: 600px;
+}
+.card, .card .side{
+  width: 350px;
+  height: 200px;
+}
+.card .side{
+  border-radius: 5px 5px;
+  transition: all 0.4s linear;
+  background: #333;
+  color: #FFF;
+  box-sizing: border-box;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.card .front{
+  padding: 10px;
+  transform: rotateX(0deg) rotateY(0deg);
+}
+.card.flip .front{
+  transform: rotateY(180deg);
+}
+.card .cc-num{
+  width: 100%;
+  padding-top: 30px;
+}
+.card input{
+  outline: none;
+  border: 0px solid;
+  background: none;
+  color: #FFF;
+}
+.card[data-type="visa"] input::-webkit-input-placeholder, .card[data-type="mastercard"] input::-webkit-input-placeholder{
+  color: #DDD;
+}
+.card[data-type="visa"] input::-moz-placeholder, .card[data-type="mastercard"] input::-moz-placeholder{
+  color: #DDD;
+}
+.card[data-type="visa"] input:-ms-placeholder, .card[data-type="mastercard"] input:-ms-placeholder{
+  color: #DDD;
+}
+.card[data-type="visa"] .company{
+  color: rgba(255,255,255,0.9);
+font-style: italic;
+text-shadow: 0px 0px 3px rgba(17,123,173,0.9);
+}
+.card[data-type="visa"] .side{
+  background: #1db1cf;
+}
+.card[data-type="mastercard"] .side{
+  background: #4d86ce;
+}
+.card[data-type="mastercard"] .company div{
+  float: left;
+width: 15px;
+height: 15px;
+border-radius: 10px;
+background: rgba(239,209,57,0.8);
+}
+.card[data-type="mastercard"] .company div:first-child{
+background: rgba(223,40,40,0.8);
+margin-right: -5px;
+}
+.signature{
+  background: #DDD;
+  color: #000;
+  padding: 10px;
+}
+.right{
+  float: right;
+}
+.sig{
+  font-family: "Allura";
+}
+.signature input.cc-cvc{
+  color: #000;
+  width: 40px;
+}
+.stripe{
+  margin: 20px 0;
+  height: 40px;
+  background: #000;
+}
+.card .back{
+  padding-top: 15px;
+  transform: rotateY(-180deg);
+}
+.card.flip .back{
+  transform: rotateX(0deg) rotateY(0deg);
+}
+
+.checkout{
+  margin: 0 auto;
+  width: 500px;
+}
+.addr input{
+  width: 100%;
+  outline: none;
+  border: 0px solid;
+  padding: 5px;
+}
+
+
+/* -------------- THE button -------------- */
+.button {
+
+/* text */
+  text-decoration:    none;
+  font:           24px/1em 'Droid Sans', sans-serif;
+  font-weight:      bold;
+  text-shadow:      rgba(255,255,255,.5) 0 1px 0;
+  -webkit-user-select:  none;
+  -moz-user-select:     none;
+  user-select:      none;
+  
+  
+/* layout */
+  padding:        .5em .6em .4em .6em;
+  margin:         .5em;
+  display:        inline-block;
+  position:         relative;
+  
+  -webkit-border-radius:  8px;
+  -moz-border-radius:   8px;
+  border-radius:  8px;
+  
+/* effects */
+  border-top:     1px solid rgba(255,255,255,0.8);
+  border-bottom:    1px solid rgba(0,0,0,0.1);
+  
+  background-image:   -webkit-gradient(radial, 50% 0, 100, 50% 0, 0, from( rgba(255,255,255,0) ), to( rgba(255,255,255,0.7) )), url(http://iwantaneff.in/t/http://iwantaneff.in/t/noise.png);
+  background-image:   -moz-radial-gradient(top, ellipse cover, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0) 100%), url(http://iwantaneff.in/t/http://iwantaneff.in/t/noise.png);
+  background-image:   gradient(radial, 50% 0, 100, 50% 0, 0, from( rgba(255,255,255,0) ), to( rgba(255,255,255,0.7) )), url(http://iwantaneff.in/t/http://iwantaneff.in/t/noise.png);
+
+  -webkit-transition: background .2s ease-in-out;
+  -moz-transition:  background .2s ease-in-out;
+  transition:     background .2s ease-in-out;
+  
+/* color */
+  color:        hsl(0, 0%, 40%) !important;
+  background-color:   hsl(0, 0%, 75%);
+  
+  -webkit-box-shadow: inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ 
+            hsl(0, 0%, 60%) 0 .1em 3px, hsl(0, 0%, 45%) 0 .3em 1px, /* color border */
+            rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
+  -moz-box-shadow:  inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ 
+            hsl(0, 0%, 60%) 0 .1em 3px, hsl(0, 0%, 45%) 0 .3em 1px, /* color border */
+            rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
+  box-shadow:     inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ 
+            hsl(0, 0%, 60%) 0 .1em 3px, hsl(0, 0%, 45%) 0 .3em 1px, /* color border */
+            rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
+}
+
+/* -------------- button (tag) -------------- */
+
+button.button {
+  border-left: none;
+  border-right: none;
+}
+button.button:hover {
+  cursor: pointer;
+}
+
+
+/* -------------- icon -------------- */
+.button:before {
+  font:       1.2em/0 'Pictos', sans-serif;
+  content:    attr(data-icon); /* gets the icon value from the custom data attribute and puts it infront of the button label */
+  margin-right:   0.4em;
+  
+  
+}
+/* icon only */
+.icon {
+  font-weight: normal;
+  font-style: normal;
+  text-indent:  -999em;
+}
+.icon:before { 
+  margin-right:   0;
+  display:    block;
+  height:     0;
+  text-indent:  0px;  
+}
+
+
+
+/* -------------- colours -------------- */
+
+.button.orange {
+  color:        hsl(39, 100%, 30%) !important;
+  background-color:   hsl(39, 100%, 50%);
+
+  -webkit-box-shadow: inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ 
+              hsl(39, 100%, 40%) 0 .1em 3px, hsl(39, 100%, 30%) 0 .3em 1px, /* color border */
+              rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
+  -moz-box-shadow:  inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ 
+              hsl(39, 100%, 40%) 0 .1em 3px, hsl(39, 100%, 30%) 0 .3em 1px, /* color border */
+              rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
+  box-shadow:     inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ 
+              hsl(39, 100%, 40%) 0 .1em 3px, hsl(39, 100%, 30%) 0 .3em 1px, /* color border */
+              rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
+}
+.button.orange:hover {  background-color: hsl(39, 100%, 65%); }
+
+
+.button.blue {
+  color:        hsl(208, 50%, 40%) !important;
+  background-color:   hsl(208, 100%, 75%);
+  
+  -webkit-box-shadow: inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ 
+              hsl(208, 50%, 55%) 0 .1em 3px, hsl(208, 50%, 40%) 0 .3em 1px, /* color border */
+              rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
+  -moz-box-shadow:  inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ 
+              hsl(208, 50%, 55%) 0 .1em 3px, hsl(208, 50%, 40%) 0 .3em 1px, /* color border */
+              rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
+  box-shadow:     inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ 
+              hsl(208, 50%, 55%) 0 .1em 3px, hsl(208, 50%, 40%) 0 .3em 1px, /* color border */
+              rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
+}
+.button.blue:hover {  background-color: hsl(208, 100%, 83%); }
+
+.button.green {
+  color:        hsl(88, 70%, 30%) !important;
+  background-color:   hsl(88, 70%, 60%);
+  -webkit-box-shadow: inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ 
+              hsl(88, 70%, 40%) 0 .1em 3px, hsl(88, 70%, 30%) 0 .3em 1px, /* color border */
+              rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
+  -moz-box-shadow:  inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ 
+              hsl(88, 70%, 40%) 0 .1em 3px, hsl(88, 70%, 30%) 0 .3em 1px, /* color border */
+              rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
+  box-shadow:     inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ 
+              hsl(88, 70%, 40%) 0 .1em 3px, hsl(88, 70%, 30%) 0 .3em 1px, /* color border */
+              rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
+}
+.button.green:hover {   background-color: hsl(88, 70%, 75%); }
+
+.button.pink {
+  color:        hsl(340, 100%, 30%) !important;
+  background-color:   hsl(340, 100%, 75%);
+  -webkit-box-shadow: inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ 
+              hsl(340, 70%, 50%) 0 .1em 3px, hsl(340, 80%, 40%) 0 .3em 1px, /* color border */
+              rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
+  -moz-box-shadow:  inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ 
+              hsl(340, 70%, 50%) 0 .1em 3px, hsl(340, 80%, 40%) 0 .3em 1px, /* color border */
+              rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
+  box-shadow:     inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ 
+              hsl(340, 70%, 50%) 0 .1em 3px, hsl(340, 80%, 40%) 0 .3em 1px, /* color border */
+              rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
+}
+.button.pink:hover {  background-color: hsl(340, 100%, 83%); }
+
+
+
+.button.transparent {
+  color:  rgba(0,0,0,0.5) !important;
+}
+.button.transparent, .button.transparent:hover, .button.transparent:active {
+  background-color: transparent;
+  background-image: none;
+}
+.button.transparent:hover {
+  opacity: .9;
+}
+
+
+
+/* -------------- States -------------- */
+
+.button:hover {
+  background-color:   hsl(0, 0%, 83%);
+}
+
+
+
+.button:active {
+  background-image:   -webkit-gradient(radial, 50% 0, 100, 50% 0, 0, from( rgba(255,255,255,0) ), to( rgba(255,255,255,0) )), url(http://iwantaneff.in/t/noise.png);
+  background-image:   -moz-gradient(radial, 50% 0, 100, 50% 0, 0, from( rgba(255,255,255,0) ), to( rgba(255,255,255,0) )), url(http://iwantaneff.in/t/noise.png);
+  background-image:   gradient(radial, 50% 0, 100, 50% 0, 0, from( rgba(255,255,255,0) ), to( rgba(255,255,255,0) )), url(http://iwantaneff.in/t/noise.png);
+
+  -webkit-box-shadow: inset rgba(255,255,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.2) 0 -0.1em .3em, /* inner shadow */ 
+              rgba(0,0,0,0.4) 0 .1em 1px, /* border */
+              rgba(0,0,0,0.2) 0 .2em 6px; /* drop shadow */
+  -moz-box-shadow:  inset rgba(255,255,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.2) 0 -0.1em .3em, /* inner shadow */ 
+              rgba(0,0,0,0.4) 0 .1em 1px, /* border */
+              rgba(0,0,0,0.2) 0 .2em 6px; /* drop shadow */
+  box-shadow:     inset rgba(255,255,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.2) 0 -0.1em .3em, /* inner shadow */ 
+              rgba(0,0,0,0.4) 0 .1em 1px, /* border */
+              rgba(0,0,0,0.2) 0 .2em 6px; /* drop shadow */
+
+  -webkit-transform:  translateY(.2em);
+  -moz-transform:   translateY(.2em);
+  transform:      translateY(.2em);
+}
+
+.button:focus {
+  outline: none;
+  color: rgba(254,255,255,0.9) !important;
+  text-shadow: rgba(0,0,0,0.2) 0 1px 2px;
+}
+
+.button[disabled], .button[disabled]:hover, .button.disabled, .button.disabled:hover {
+  opacity:      .5;
+  cursor:       default;
+  color:        rgba(0,0,0,0.2) !important;
+  text-shadow:    none !important;
+  background-color:   rgba(0,0,0,0.05);
+  background-image:   none;
+  border-top:     none;
+
+  -webkit-box-shadow: inset rgba(255,254,255,0.4) 0 0.3em .3em, inset rgba(0,0,0,0.1) 0 -0.1em .3em, /* inner shadow */ 
+              rgba(0,0,0,0.3) 0 .1em 1px, /* border */
+              rgba(0,0,0,0.2) 0 .2em 6px; /* drop shadow */
+  -moz-box-shadow:  inset rgba(255,254,255,0.4) 0 0.3em .3em, inset rgba(0,0,0,0.1) 0 -0.1em .3em, /* inner shadow */ 
+              rgba(0,0,0,0.3) 0 .1em 1px, /* border */
+              rgba(0,0,0,0.2) 0 .2em 6px; /* drop shadow */
+  box-shadow:     inset rgba(255,254,255,0.4) 0 0.3em .3em, inset rgba(0,0,0,0.1) 0 -0.1em .3em, /* inner shadow */ 
+              rgba(0,0,0,0.3) 0 .1em 1px, /* border */
+              rgba(0,0,0,0.2) 0 .2em 6px; /* drop shadow */
+
+  -webkit-transform:  translateY(5px);
+  -moz-transform:   translateY(5px);
+  transform:      translateY(5px);
+}
+
+/* -------------- Fonts -------------- */
+
+.serif { 
+  font-family: 'Lobster', serif;
+  font-weight:      normal;
+}
+
+
+/* -------------- Sizes -------------- */
+
+.xs { font-size: 16px; }
+.xl { font-size: 32px; }
+
+
+/* -------------- Materials -------------- */
+
+.button.glossy:after, .button.glass:after {
+  content:  "";
+  position:   absolute; 
+    width:    90%;
+    height:   60%;
+    top:    0;
+    left:     5%;    
+    
+    -webkit-border-radius:  .5em .5em 1em 1em / .5em .5em 2em 2em;    
+    -moz-border-radius:   .5em .5em 1em 1em / .5em .5em 2em 2em;
+    border-radius:      .5em .5em 1em 1em / .5em .5em 2em 2em;
+    
+    background-image:     -webkit-gradient(linear, 0% 0, 100% 0, from( rgba(255,255,255,.55) ), to( rgba(255,255,255,.5) ),
+                  color-stop(.5, rgba(255,255,255,0)), color-stop(.8, rgba(255,255,255,0)) ); 
+    background-image:     -moz-linear-gradient(left, rgba(255,255,255,.55), rgba(255,255,255,0) 50%, rgba(255,255,255,0) 80%, rgba(255,255,255,.5) ); 
+    background-image:     gradient(linear, 0% 0, 100% 0, from( rgba(255,255,255,.55) ), to( rgba(255,255,255,.5) ),
+                  color-stop(.5, rgba(255,255,255,0)), color-stop(.8, rgba(255,255,255,0)) ); 
+}
+.button.glossy:active:after,
+.button.glass:active:after,
+.button.disabled:after,
+.button[disabled]:after
+ { opacity: .6; }
+
+.button.icon.glossy:after,
+.button.icon.glass:after { height: 75% ; }
+
+/* -------------- Glass + Transparent -------------- */
+.button.glass {
+  text-shadow: rgba(255,255,255,.5) 0 -1px 0, rgba(0,0,0,0.18) 0 .18em .15em;
+}
+.button.glass:active {
+  text-shadow: rgba(255,255,255,.3) 0 1px 0, rgba(0,0,0,0.15) 0 .18em .15em;
+}
+
+
+/* -------------- Shapes -------------- */
+
+/* round */
+.round, .round.glossy:after, .round.glass:after { 
+  border-top: none; 
+  -webkit-border-radius:  1em; 
+  -moz-border-radius:   1em; 
+  border-radius:      1em; 
+}
+
+/* oval */
+.oval {
+  border-top:       none; 
+  padding-left:       .8em;
+  padding-right:      .8em;
+  -webkit-border-radius:  5em / 2em; 
+  -moz-border-radius:   5em / 2em; 
+  border-radius:      5em / 2em; 
+}
+.oval.glossy:after, .oval.glass:after {   
+  top:          5%;
+  -webkit-border-radius:  5em / 2em 2em 1em 1em; 
+  -moz-border-radius:   5em / 2em 2em 1em 1em; 
+  border-radius:      5em / 2em 2em 1em 1em; 
+}
+.oval.icon {
+  padding-left:       .8em;
+  padding-right:      .8em; 
+  -webkit-border-radius:  1.5em / 1em; 
+  -moz-border-radius:   1.5em / 1em; 
+  border-radius:      1.5em / 1em; 
+}
+.oval.icon.glossy:after, .oval.icon.glass:after { 
+  -webkit-border-radius:  1.5em / 1em; 
+  -moz-border-radius:   1.5em / 1em; 
+  border-radius:      1.5em / 1em; 
+}
+
+/* brackets */
+.brackets, .brackets.glossy:after, .brackets.glass:after { 
+  border-top:       none; 
+  -webkit-border-radius:  .5em / 1em;
+  -moz-border-radius:   .5em / 1em;
+  border-radius:      .5em / 1em;
+}
+
+/* skew */
+.skew { 
+  border-top:       none; 
+  padding-right:      1.2em;
+  padding-left:       0.8em;  
+  -webkit-border-radius:  5em 1em / 5em 1em;  
+  -moz-border-radius:   5em 1em / 5em 1em;  
+  border-radius:      5em 1em / 5em 1em;  
+}
+.skew.glossy:after, .skew.glass:after {   
+  left: 10%;
+  -webkit-border-radius:  7em 1em / 5em 1em;
+  -moz-border-radius:   7em 1em / 5em 1em;
+  border-radius:      7em 1em / 5em 1em;
+}
+.skew.icon {  
+  padding-right:      .9em;
+  padding-left:       .8em;
+}
+
+/* back */
+.back, .back.glossy:after, .back.glass:after { 
+  border-top-color:     rgba(255,255,255,0.5);
+  -webkit-border-radius:  1.6em 1.6em 1em 1em / 4em 4em 1em 1em; 
+  -moz-border-radius:   1.6em 1.6em 1em 1em / 4em 4em 1em 1em; 
+  border-radius:      1.6em 1.6em 1em 1em / 4em 4em 1em 1em; 
+}
+.back.glossy:after, .back.glass:after { 
+   left:  6%;
+   width: 88%;
+}
+
+/* knife */
+.knife {            
+  padding-left: 1.5em;
+  -webkit-border-radius:  .2em .5em .5em 8em / .2em .5em .5em 5em; 
+  -moz-border-radius:   .2em .5em .5em 8em / .2em .5em .5em 5em; 
+  border-radius:      .2em .5em .5em 8em / .2em .5em .5em 5em; 
+}
+.knife.glossy:after, .knife.glass:after {
+  left:           3%;
+  width:          97%;    
+  -webkit-border-radius:  .1em .5em .5em 8em / .1em .5em .5em 2em;   
+  -moz-border-radius:   .1em .5em .5em 8em / .1em .5em .5em 2em;   
+  border-radius:      .1em .5em .5em 8em / .1em .5em .5em 2em;   
+}
+.knife.glossy.icon:after, .knife.glass.icon:after { 
+  left:           5%; 
+  width:          95%;
+  -webkit-border-radius:  .5em .5em 1em 6em / .5em .5em 1em 4em; 
+  -moz-border-radius:   .5em .5em 1em 6em / .5em .5em 1em 4em; 
+  border-radius:      .5em .5em 1em 6em / .5em .5em 1em 4em; 
+}
+
+/* shield */
+.shield, .shield.glossy:after, .shield.glass:after { 
+  -webkit-border-radius:  .4em .4em 2em 2em / .4em .4em 3em 3em; 
+  -moz-border-radius:   .4em .4em 2em 2em / .4em .4em 3em 3em;
+  border-radius:      .4em .4em 2em 2em / .4em .4em 3em 3em;
+}
+.shield {               
+  padding-left:   .8em;
+  padding-right:  .8em;
+}
+.shield.icon {            
+  padding-left:   .6em; 
+  padding-right:  .6em;
+}
+
+/* drop */
+.drop {
+  border-top: none;
+  -webkit-border-radius:  2em 5em  2em .6em / 2em 4em 2em .6em; 
+  -moz-border-radius:   2em 5em  2em .6em / 2em 4em 2em .6em; 
+  border-radius:      2em 5em  2em .6em / 2em 4em 2em .6em; 
+}
+.drop.glossy:after, .drop.glass:after { 
+  left: 4%;
+  -webkit-border-radius:  2em 6em  2em 1em / 2em 4em 2em 2em; 
+  -moz-border-radius:   2em 6em  2em 1em / 2em 4em 2em 2em;
+  border-radius:      2em 6em  2em 1em / 2em 4em 2em 2em;
+}
+.drop.icon {  
+  padding-right: .6em; 
+}
+
+
+/* morph */
+.morph {
+  border-top: none;
+  -webkit-border-radius:  5em / 2em;
+  -moz-border-radius:   5em / 2em;
+  border-radius:      5em / 2em;
+  -webkit-transition:   -webkit-border-radius .3s ease-in-out;
+  -moz-transition:    -moz-border-radius .3s ease-in-out;
+  transition:       -moz-border-radius .3s ease-in-out;
+}
+.morph:hover { 
+  -webkit-border-radius:  .4em .4em 2em 2em / .4em .4em 3em 3em;
+  -moz-border-radius:   .4em .4em 2em 2em / .4em .4em 3em 3em;
+  border-radius:      .4em .4em 2em 2em / .4em .4em 3em 3em;
+}
+.morph:active { 
+  -webkit-border-radius:  .3em;
+  -moz-border-radius:   .3em;
+  border-radius:      .3em;
+}
+.morph:after { 
+  display: none;
+}
+
+
+
+
+/* Some ugly hacks for FF. 
+Thanks to David Hund for some help - http://valuedstandards.com/static/test/buttons/ */
+@-moz-document url-prefix() {
+  .button { text-align: center; }
+  .icon { padding: .5em 1em; }
+  .icon:before { margin-left: -.42em; float: left; }
+  
+  .drop.icon { padding-right: 1.1em; }
+  .shield.icon { padding-left: 1.1em; padding-right: 1.1em; }
+  .skew.icon { padding-right: 1.4em; padding-left: 1.3em; }
+  .oval.icon { padding-left: 1.3em; padding-right: 1.3em; }
+  .knife { padding-left: 2em; }
+}
+
+
+
+
+/* Damn, this became a fat baby..  */
+</style>
+
+
+<!-- JAVASCRIPTS -- 
+<script>
+$('input.cc-num').payment('formatCardNumber').on("keyup change", function(){
+  var type = $.payment.cardType( $(this).val() );
+  if(type == "visa"){
+    $(".company").html("VISA");
+    $(".card").attr("data-type", "visa");
+  } else if(type == "mastercard"){
+    $(".company").html("<div></div><div></div>");
+    $(".card").attr("data-type", "mastercard");
+  }else{
+    $(".card").attr("data-type", "unknown");
+    $(".company").html("CARD");
+  }
+});
+$('input.cc-exp').payment('formatCardExpiry');
+$('input.cc-cvc').payment('formatCardCVC');
+$(".button.flip").click(function(){
+  $(".card").toggleClass("flip");
+});
+</script> -->
+<script src="../layout/scripts/jquery.min.js"></script> 
+<script src="../layout/scripts/jquery.fitvids.min.js"></script> 
+<script src="../layout/scripts/jquery.mobilemenu.js"></script> 
+<script src="../layout/scripts/nivo-lightbox/nivo-lightbox.min.js"></script>
+</body>
+</html>

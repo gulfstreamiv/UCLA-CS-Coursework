@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<!--
+Template Name: Academic Education V2
+Author: <a href="http://www.os-templates.com/">OS Templates</a>
+Author URI: http://www.os-templates.com/
+Licence: Free to use under our free template licence terms
+Licence URI: http://www.os-templates.com/template-terms
+-->
+<html>
+<head>
+<title>TutorU | Account | Register</title>
+	 <!-- ********** ADD FIREBASE and .js file ******** -->
+	 <script src="https://cdn.firebase.com/js/client/2.2.1/firebase.js"></script>
+	
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link href="../layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
+
+
+<!-- -->
+    <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <title>Custom Login Form Styling</title>
+        <meta name="description" content="Custom Login Form Styling with CSS3" />
+        <meta name="keywords" content="css3, login, form, custom, input, submit, button, html5, placeholder" />
+        <meta name="author" content="Codrops" />
+        
+        <link rel="shortcut icon" href="../favicon.ico"> 
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+    <script src="js/modernizr.custom.63321.js"></script>
+    <!--[if lte IE 7]><style>.main{display:none;} .support-note .note-ie{display:block;}</style><![endif]-->
+    <style> 
+      @import url(http://fonts.googleapis.com/css?family=Raleway:400,700);
+      body {
+        font:georgia;
+        background: #001F3D;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        background-size: cover;
+      }
+      .container > header h1,
+      .container > header h2 {
+        color: #fff;
+        text-shadow: 0 1px 1px rgba(0,0,0,0.7);
+      }
+    </style>
+
+
+
+     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js" type="text/javascript"></script>
+  <script src="jquery/iphone-style-checkboxes.js" type="text/javascript" charset="utf-8"></script>
+	 
+
+	 
+ 
+  <style type="text/css">
+
+    th {
+      text-align: right;
+      padding: 4px;
+      padding-right: 15px;
+      vertical-align: top; }
+    .css_sized_container .iPhoneCheckContainer {
+      width: 250px; }
+  </style>
+
+  <script type="text/javascript" charset="utf-8">
+  
+    function yesnoCheck() {
+        if (document.getElementById('long_tinyy').checked) {
+            document.getElementById('jsalarmclock').style.visibility = 'visible';
+
+            jsalarm.submitref.disabled=false
+            jsalarm.hourwake=undefined
+            jsalarm.hourselect.disabled=false
+            jsalarm.minuteselect.disabled=false
+            jsalarm.secondselect.disabled=false
+        }
+        else {
+          document.getElementById('jsalarmclock').style.visibility = 'hidden';
+        }
+    }
+  
+    $(window).load(
+      function() {
+
+      $('.long_tiny :checkbox').iphoneStyle({ checkedLabel: 'Available', uncheckedLabel: 'Not Available' });
+      
+      var onchange_checkbox = ($('.onchange :checkbox')).iphoneStyle({
+        onChange: function(elem, value) { 
+          $('span#status').html(value.toString());
+        }
+      });
+      
+      setInterval(function() {
+        onchange_checkbox.prop('checked', !onchange_checkbox.is(':checked')).iphoneStyle("refresh");
+        return
+      }, 2500);
+    }
+    );
+	
+
+
+    //*********Logout********
+    var ref = new Firebase('https://tutoru-v1.firebaseio.com/');
+    var authData = ref.getAuth();
+    var userId = authData.uid.substr(12);
+	
+    //call back that listen for changes
+    ref.onAuth(authDataCallback);
+    function authDataCallback(authData) {
+      if (authData)
+        console.log("User " + authData.uid.substr(12) + " is logged in with " + authData.provider);
+      else 
+        console.log("User is logged out");
+    }
+	
+	function logout(){
+      ref.unauth();
+      console.log("User is logged out");
+    }
+	
+    var userPtr = ref.child("tutors").child(userId);
+    userPtr.once("value", function(snapshot){
+      user = snapshot.val();
+      document.getElementById("demo").innerHTML = "Hello " + user.name;
+    });
+
+   
+
+
+  </script>
+
+
+<!-- Alarm -->
+<style type="text/css">
+
+#jsalarmclock{
+font-family: Tahoma;
+font-weight: bold;
+font-size: 12px;
+}
+
+#jsalarmclock div{
+margin-bottom: 0.8em;
+}
+
+#jsalarmclock div.leftcolumn{
+float: left;
+width: 150px;
+font-size: 13px;
+background-color: lightyellow;
+clear: left;
+}
+
+#jsalarmclock span{
+margin-right: 5px;
+}
+
+</style>
+
+<script type="text/javascript">
+
+/***********************************************
+
+* JavaScript Alarm Clock- by JavaScript Kit (www.javascriptkit.com)
+* This notice must stay intact for usage
+* Visit JavaScript Kit at http://www.javascriptkit.com/ for this script and 100s more
+
+***********************************************/
+
+var jsalarm={
+  padfield:function(f){
+    return (f<10)? "0"+f : f
+  },
+  showcurrenttime:function(){
+    var dateobj=new Date()
+    var ct=this.padfield(dateobj.getHours())+":"+this.padfield(dateobj.getMinutes())+":"+this.padfield(dateobj.getSeconds())
+    this.ctref.innerHTML=ct
+    this.ctref.setAttribute("title", ct)
+    if (typeof this.hourwake!="undefined"){ //if alarm is set
+      if (this.ctref.title==(this.hourwake+":"+this.minutewake+":"+this.secondwake)){
+        clearInterval(jsalarm.timer)
+        window.location=document.getElementById("musicloc").value
+      }
+    }
+  },
+  init:function(){
+    var dateobj=new Date()
+    this.ctref=document.getElementById("jsalarm_ct")
+    this.submitref=document.getElementById("submitbutton")
+    this.submitref.onclick=function(){
+      jsalarm.setalarm()
+      this.value="Set"
+      this.disabled=true
+      return false
+    }
+    this.resetref=document.getElementById("resetbutton")
+    this.resetref.onclick=function(){
+    jsalarm.submitref.disabled=false
+    jsalarm.hourwake=undefined
+    jsalarm.hourselect.disabled=false
+    jsalarm.minuteselect.disabled=false
+    jsalarm.secondselect.disabled=false
+    return false
+    }
+    var selections=document.getElementsByTagName("select")
+    this.hourselect=selections[0]
+    this.minuteselect=selections[1]
+    this.secondselect=selections[2]
+    for (var i=0; i<60; i++){
+      if (i<24) //If still within range of hours field: 0-23
+      this.hourselect[i]=new Option(this.padfield(i), this.padfield(i), false, dateobj.getHours()==i)
+      this.minuteselect[i]=new Option(this.padfield(i), this.padfield(i), false, dateobj.getMinutes()==i)
+      this.secondselect[i]=new Option(this.padfield(i), this.padfield(i), false, dateobj.getSeconds()==i)
+
+    }
+    jsalarm.showcurrenttime()
+    jsalarm.timer=setInterval(function(){jsalarm.showcurrenttime()}, 1000)
+  },
+  setalarm:function(){
+    this.hourwake=this.hourselect.options[this.hourselect.selectedIndex].value
+    this.minutewake=this.minuteselect.options[this.minuteselect.selectedIndex].value
+    this.secondwake=this.secondselect.options[this.secondselect.selectedIndex].value
+    this.hourselect.disabled=true
+    this.minuteselect.disabled=true
+    this.secondselect.disabled=true
+  }
+}
+
+</script>
+
+</head>
+<body id="top">
+<!-- ################################################################################################ --> 
+<!-- ################################################################################################ --> 
+<!-- ################################################################################################ -->
+<div class="wrapper row0">
+  <div id="topbar" class="clear"> 
+    <!-- ################################################################################################ -->
+    <nav>
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="registration.html">Register Account</a></li>
+        <li><a href="member_login.html">Member Login</a></li>
+        <li> <p id="demo"> </p></li>
+      </ul>
+    </nav>
+	
+    <!-- ################################################################################################ --> 
+  </div>
+</div>
+<!-- ################################################################################################ --> 
+<!-- ################################################################################################ --> 
+<!-- ################################################################################################ -->
+<div class="wrapper row1">
+  <header id="header" class="clear"> 
+    <!-- ################################################################################################ -->
+    <div id="logo" class="fl_left">
+      <h1><a>Tutor Homepage | TutorU</a></h1> <style>h1{color:white}</style>
+    </div>
+    <div class="fl_right">
+      <form class="clear" method="post" action="#">
+        <fieldset>
+          <legend>Search:</legend>
+          <input type="text" value="" placeholder="Search Here">
+          <button class="fa fa-search" type="submit" title="Search"><em>Search</em></button>
+        </fieldset>
+      </form>
+    <!-- ################################################################################################ --> 
+  </header>
+</div>
+<!-- ################################################################################################ --> 
+<!-- ################################################################################################ --> 
+<!-- ################################################################################################ -->
+<div style="display" class="wrapper row2">
+  <div class="rounded">
+    <nav id="mainav" class="clear"> 
+      <!-- ################################################################################################ -->
+      <ul class="clear">
+        <li><a href="../index.html">Home</a></li>
+        <li style="margin-left:40px;"><a href="http://www.cs.ucla.edu/~miryung/teaching/CS130-Spring2015/main.html">About Us</a></li>
+        <li style="margin-left:40px;"><a href="registration.html">Sign-Up</a></li>
+        <li style="margin-left:40px;"><a href="member_login.html">Member Login</a></li>
+        <li style="margin-left:40px;"><a href="forget_password.html">Retrieve Password</a></li>
+        <li style="margin-left:40px;"><a href="#">FAQs</a></li>
+      </ul>
+      <!-- ################################################################################################ --> 
+    </nav>
+  </div>
+</div>
+
+
+<!-- ################################################################################################ --> 
+<!-- ################################################################################################ --> 
+<!-- ################################################################################################ -->
+<div class="wrapper row3">
+  <div class="rounded">
+    <main class="container clear"> 
+      <!-- main body --> 
+      <!-- ################################################################################################ -->
+ <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600' rel='stylesheet' type='text/css'>
+<link href="https://netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
+
+
+        <div class="container">
+  
+      
+      <header>
+        <h1><a>Tutor Home </a></h1>
+        
+      </header>
+  <center>
+  <p style="margin-top:20px;margin-bottom:10px"><a>Note: Please do <strong>NOT</strong> update your account when you are available.</a></p>
+  <a href="update_account_tutor.html" class="button"><font size="5">Update Account</font></a><br>
+</center>
+    
+    <center>
+    <div class="accounttype">  
+        
+    <table>
+    <tr class="long_tiny" onclick="javascript:yesnoCheck();">
+      <p><a><strong><font size="3" color="grey">You are currently:</font><strong></a></p><br>
+      <td>
+        <input type="checkbox" id="long_tinyy" />
+      </td>
+    </tr>
+    </table>
+    </center> 
+
+
+<div id="jsalarmclock" style="visibility:hidden">
+<center>
+<div style="margin-top:-40px; margin-bottom:0px"><p><a><strong><font size="3" color="grey" >Until:</font></strong></a></p></div> 
+<div style="display:inline-block; "><span ><select></select> Hour</span></div> 
+<div style="display:inline-block;"><span><select></select> Minutes</span></div> 
+<div style="display:inline-block;"><span><select></select> Seconds</span></div><br>
+
+<div style="display:inline-block;"><div><p><a><strong><font size="3" color="grey">Current Time:</font></strong></a></p></div> <span id="jsalarm_ct" style="letter-spacing: 2px"></span></div><br>
+
+<input type="submit" class="button" value="Set" id="submitbutton" style="margin-bottom:40px"/> <input type="reset" class="button" value="Reset" id="resetbutton" />
+</center>  
+</div>
+
+
+
+
+<script type="text/javascript">
+
+jsalarm.init()
+
+</script>
+
+<hr>
+
+
+<section class="main">
+   
+<center><a href="../index.html" class="button blue skew" style="margin-top:20px;">Logout</a></center>
+</section>
+
+  </div>
+
+
+
+      <!-- ################################################################################################ --> 
+      <!-- ################################################################################################ -->
+      <!-- ################################################################################################ --> 
+      <!-- / main body -->
+      <div class="clear"></div>
+    </main>
+  </div>
+</div>
+<!-- ################################################################################################ --> 
+<!-- ################################################################################################ --> 
+<!-- ################################################################################################ -->
+<div class="wrapper row4">
+  <div class="rounded">
+    <footer id="footer" class="clear"> 
+      <!-- ################################################################################################ -->
+      <div class="one_third first">
+        <figure class="center"><img class="btmspace-15" src="../images/demo/worldmap.png" alt="">
+          <figcaption><a href="#">Find Us With Google Maps &raquo;</a></figcaption>
+        </figure>
+      </div>
+      <div class="one_third">
+        <address>
+        TutorU Corporation<br>
+        405 Hilgard Avenue<br>
+        Los Angeles, CA<br>
+        90095<br>
+        <br>
+        <i class="fa fa-phone pright-10"></i> xxxx xxxx xxxxxx<br>
+        <i class="fa fa-envelope-o pright-10"></i> <a href="#">adm@tutoru.com</a>
+        </address>
+      </div>
+      <div class="one_third">
+        <p class="nospace btmspace-10">Stay Up to Date With What's Happening</p>
+        <ul class="faico clear">
+          <li><a class="faicon-twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+          <li><a class="faicon-linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+          <li><a class="faicon-facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+          <li><a class="faicon-flickr" href="#"><i class="fa fa-flickr"></i></a></li>
+          <li><a class="faicon-rss" href="#"><i class="fa fa-rss"></i></a></li>
+        </ul>
+        <form class="clear" method="post" action="#">
+          <fieldset>
+            <legend>Subscribe To Our Newsletter:</legend>
+            <input type="text" value="" placeholder="Enter Email Here&hellip;">
+            <button class="fa fa-sign-in" type="submit" title="Sign Up"><em>Sign Up</em></button>
+          </fieldset>
+        </form>
+      </div>
+      <!-- ################################################################################################ --> 
+    </footer>
+  </div>
+</div>
+<!-- ################################################################################################ --> 
+<!-- ################################################################################################ --> 
+<!-- ################################################################################################ -->
+<div class="wrapper row5">
+  <div id="copyright" class="clear"> 
+    <!-- ################################################################################################ -->
+    <p class="fl_left">Copyright &copy; 2015 - All Rights Reserved - <a href="#">Domain Name</a></p>
+    <p class="fl_right">Template by <a target="_blank" href="http://www.os-templates.com/" title="Free Website Templates">OS Templates</a></p>
+    <!-- ################################################################################################ --> 
+  </div>
+</div>
+<!--####################### -->
+<style>
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans:bold+Lobster);
+@import url(http://fonts.googleapis.com/css?family=Lobster);
+
+
+
+/* -------------- THE button -------------- */
+.button {
+
+/* text */
+  text-decoration:    none;
+  font:           24px/1em 'Droid Sans', sans-serif;
+  font-weight:      bold;
+  text-shadow:      rgba(255,255,255,.5) 0 1px 0;
+  -webkit-user-select:  none;
+  -moz-user-select:     none;
+  user-select:      none;
+  
+  
+/* layout */
+  padding:        .5em .6em .4em .6em;
+  margin:         .5em;
+  display:        inline-block;
+  position:         relative;
+  
+  -webkit-border-radius:  8px;
+  -moz-border-radius:   8px;
+  border-radius:  8px;
+  
+/* effects */
+  border-top:     1px solid rgba(255,255,255,0.8);
+  border-bottom:    1px solid rgba(0,0,0,0.1);
+  
+  background-image:   -webkit-gradient(radial, 50% 0, 100, 50% 0, 0, from( rgba(255,255,255,0) ), to( rgba(255,255,255,0.7) )), url(http://iwantaneff.in/t/http://iwantaneff.in/t/noise.png);
+  background-image:   -moz-radial-gradient(top, ellipse cover, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0) 100%), url(http://iwantaneff.in/t/http://iwantaneff.in/t/noise.png);
+  background-image:   gradient(radial, 50% 0, 100, 50% 0, 0, from( rgba(255,255,255,0) ), to( rgba(255,255,255,0.7) )), url(http://iwantaneff.in/t/http://iwantaneff.in/t/noise.png);
+
+  -webkit-transition: background .2s ease-in-out;
+  -moz-transition:  background .2s ease-in-out;
+  transition:     background .2s ease-in-out;
+  
+/* color */
+  color:        hsl(0, 0%, 40%) !important;
+  background-color:   hsl(0, 0%, 75%);
+  
+  -webkit-box-shadow: inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ 
+            hsl(0, 0%, 60%) 0 .1em 3px, hsl(0, 0%, 45%) 0 .3em 1px, /* color border */
+            rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
+  -moz-box-shadow:  inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ 
+            hsl(0, 0%, 60%) 0 .1em 3px, hsl(0, 0%, 45%) 0 .3em 1px, /* color border */
+            rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
+  box-shadow:     inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ 
+            hsl(0, 0%, 60%) 0 .1em 3px, hsl(0, 0%, 45%) 0 .3em 1px, /* color border */
+            rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
+}
+
+/* -------------- button (tag) -------------- */
+
+button.button {
+  border-left: none;
+  border-right: none;
+}
+button.button:hover {
+  cursor: pointer;
+}
+
+
+/* -------------- icon -------------- */
+.button:before {
+  font:       1.2em/0 'Pictos', sans-serif;
+  content:    attr(data-icon); /* gets the icon value from the custom data attribute and puts it infront of the button label */
+  margin-right:   0.4em;
+  
+  
+}
+/* icon only */
+.icon {
+  font-weight: normal;
+  font-style: normal;
+  text-indent:  -999em;
+}
+.icon:before { 
+  margin-right:   0;
+  display:    block;
+  height:     0;
+  text-indent:  0px;  
+}
+
+
+
+/* -------------- colours -------------- */
+
+.button.orange {
+  color:        hsl(39, 100%, 30%) !important;
+  background-color:   hsl(39, 100%, 50%);
+
+  -webkit-box-shadow: inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ 
+              hsl(39, 100%, 40%) 0 .1em 3px, hsl(39, 100%, 30%) 0 .3em 1px, /* color border */
+              rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
+  -moz-box-shadow:  inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ 
+              hsl(39, 100%, 40%) 0 .1em 3px, hsl(39, 100%, 30%) 0 .3em 1px, /* color border */
+              rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
+  box-shadow:     inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ 
+              hsl(39, 100%, 40%) 0 .1em 3px, hsl(39, 100%, 30%) 0 .3em 1px, /* color border */
+              rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
+}
+.button.orange:hover {  background-color: hsl(39, 100%, 65%); }
+
+
+.button.blue {
+  color:        hsl(208, 50%, 40%) !important;
+  background-color:   hsl(208, 100%, 75%);
+  
+  -webkit-box-shadow: inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ 
+              hsl(208, 50%, 55%) 0 .1em 3px, hsl(208, 50%, 40%) 0 .3em 1px, /* color border */
+              rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
+  -moz-box-shadow:  inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ 
+              hsl(208, 50%, 55%) 0 .1em 3px, hsl(208, 50%, 40%) 0 .3em 1px, /* color border */
+              rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
+  box-shadow:     inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ 
+              hsl(208, 50%, 55%) 0 .1em 3px, hsl(208, 50%, 40%) 0 .3em 1px, /* color border */
+              rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
+}
+.button.blue:hover {  background-color: hsl(208, 100%, 83%); }
+
+.button.green {
+  color:        hsl(88, 70%, 30%) !important;
+  background-color:   hsl(88, 70%, 60%);
+  -webkit-box-shadow: inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ 
+              hsl(88, 70%, 40%) 0 .1em 3px, hsl(88, 70%, 30%) 0 .3em 1px, /* color border */
+              rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
+  -moz-box-shadow:  inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ 
+              hsl(88, 70%, 40%) 0 .1em 3px, hsl(88, 70%, 30%) 0 .3em 1px, /* color border */
+              rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
+  box-shadow:     inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ 
+              hsl(88, 70%, 40%) 0 .1em 3px, hsl(88, 70%, 30%) 0 .3em 1px, /* color border */
+              rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
+}
+.button.green:hover {   background-color: hsl(88, 70%, 75%); }
+
+.button.pink {
+  color:        hsl(340, 100%, 30%) !important;
+  background-color:   hsl(340, 100%, 75%);
+  -webkit-box-shadow: inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ 
+              hsl(340, 70%, 50%) 0 .1em 3px, hsl(340, 80%, 40%) 0 .3em 1px, /* color border */
+              rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
+  -moz-box-shadow:  inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ 
+              hsl(340, 70%, 50%) 0 .1em 3px, hsl(340, 80%, 40%) 0 .3em 1px, /* color border */
+              rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
+  box-shadow:     inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ 
+              hsl(340, 70%, 50%) 0 .1em 3px, hsl(340, 80%, 40%) 0 .3em 1px, /* color border */
+              rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
+}
+.button.pink:hover {  background-color: hsl(340, 100%, 83%); }
+
+
+
+.button.transparent {
+  color:  rgba(0,0,0,0.5) !important;
+}
+.button.transparent, .button.transparent:hover, .button.transparent:active {
+  background-color: transparent;
+  background-image: none;
+}
+.button.transparent:hover {
+  opacity: .9;
+}
+
+
+
+/* -------------- States -------------- */
+
+.button:hover {
+  background-color:   hsl(0, 0%, 83%);
+}
+
+
+
+.button:active {
+  background-image:   -webkit-gradient(radial, 50% 0, 100, 50% 0, 0, from( rgba(255,255,255,0) ), to( rgba(255,255,255,0) )), url(http://iwantaneff.in/t/noise.png);
+  background-image:   -moz-gradient(radial, 50% 0, 100, 50% 0, 0, from( rgba(255,255,255,0) ), to( rgba(255,255,255,0) )), url(http://iwantaneff.in/t/noise.png);
+  background-image:   gradient(radial, 50% 0, 100, 50% 0, 0, from( rgba(255,255,255,0) ), to( rgba(255,255,255,0) )), url(http://iwantaneff.in/t/noise.png);
+
+  -webkit-box-shadow: inset rgba(255,255,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.2) 0 -0.1em .3em, /* inner shadow */ 
+              rgba(0,0,0,0.4) 0 .1em 1px, /* border */
+              rgba(0,0,0,0.2) 0 .2em 6px; /* drop shadow */
+  -moz-box-shadow:  inset rgba(255,255,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.2) 0 -0.1em .3em, /* inner shadow */ 
+              rgba(0,0,0,0.4) 0 .1em 1px, /* border */
+              rgba(0,0,0,0.2) 0 .2em 6px; /* drop shadow */
+  box-shadow:     inset rgba(255,255,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.2) 0 -0.1em .3em, /* inner shadow */ 
+              rgba(0,0,0,0.4) 0 .1em 1px, /* border */
+              rgba(0,0,0,0.2) 0 .2em 6px; /* drop shadow */
+
+  -webkit-transform:  translateY(.2em);
+  -moz-transform:   translateY(.2em);
+  transform:      translateY(.2em);
+}
+
+.button:focus {
+  outline: none;
+  color: rgba(254,255,255,0.9) !important;
+  text-shadow: rgba(0,0,0,0.2) 0 1px 2px;
+}
+
+.button[disabled], .button[disabled]:hover, .button.disabled, .button.disabled:hover {
+  opacity:      .5;
+  cursor:       default;
+  color:        rgba(0,0,0,0.2) !important;
+  text-shadow:    none !important;
+  background-color:   rgba(0,0,0,0.05);
+  background-image:   none;
+  border-top:     none;
+
+  -webkit-box-shadow: inset rgba(255,254,255,0.4) 0 0.3em .3em, inset rgba(0,0,0,0.1) 0 -0.1em .3em, /* inner shadow */ 
+              rgba(0,0,0,0.3) 0 .1em 1px, /* border */
+              rgba(0,0,0,0.2) 0 .2em 6px; /* drop shadow */
+  -moz-box-shadow:  inset rgba(255,254,255,0.4) 0 0.3em .3em, inset rgba(0,0,0,0.1) 0 -0.1em .3em, /* inner shadow */ 
+              rgba(0,0,0,0.3) 0 .1em 1px, /* border */
+              rgba(0,0,0,0.2) 0 .2em 6px; /* drop shadow */
+  box-shadow:     inset rgba(255,254,255,0.4) 0 0.3em .3em, inset rgba(0,0,0,0.1) 0 -0.1em .3em, /* inner shadow */ 
+              rgba(0,0,0,0.3) 0 .1em 1px, /* border */
+              rgba(0,0,0,0.2) 0 .2em 6px; /* drop shadow */
+
+  -webkit-transform:  translateY(5px);
+  -moz-transform:   translateY(5px);
+  transform:      translateY(5px);
+}
+
+/* -------------- Fonts -------------- */
+
+.serif { 
+  font-family: 'Lobster', serif;
+  font-weight:      normal;
+}
+
+
+/* -------------- Sizes -------------- */
+
+.xs { font-size: 16px; }
+.xl { font-size: 32px; }
+
+
+/* -------------- Materials -------------- */
+
+.button.glossy:after, .button.glass:after {
+  content:  "";
+  position:   absolute; 
+    width:    90%;
+    height:   60%;
+    top:    0;
+    left:     5%;    
+    
+    -webkit-border-radius:  .5em .5em 1em 1em / .5em .5em 2em 2em;    
+    -moz-border-radius:   .5em .5em 1em 1em / .5em .5em 2em 2em;
+    border-radius:      .5em .5em 1em 1em / .5em .5em 2em 2em;
+    
+    background-image:     -webkit-gradient(linear, 0% 0, 100% 0, from( rgba(255,255,255,.55) ), to( rgba(255,255,255,.5) ),
+                  color-stop(.5, rgba(255,255,255,0)), color-stop(.8, rgba(255,255,255,0)) ); 
+    background-image:     -moz-linear-gradient(left, rgba(255,255,255,.55), rgba(255,255,255,0) 50%, rgba(255,255,255,0) 80%, rgba(255,255,255,.5) ); 
+    background-image:     gradient(linear, 0% 0, 100% 0, from( rgba(255,255,255,.55) ), to( rgba(255,255,255,.5) ),
+                  color-stop(.5, rgba(255,255,255,0)), color-stop(.8, rgba(255,255,255,0)) ); 
+}
+.button.glossy:active:after,
+.button.glass:active:after,
+.button.disabled:after,
+.button[disabled]:after
+ { opacity: .6; }
+
+.button.icon.glossy:after,
+.button.icon.glass:after { height: 75% ; }
+
+/* -------------- Glass + Transparent -------------- */
+.button.glass {
+  text-shadow: rgba(255,255,255,.5) 0 -1px 0, rgba(0,0,0,0.18) 0 .18em .15em;
+}
+.button.glass:active {
+  text-shadow: rgba(255,255,255,.3) 0 1px 0, rgba(0,0,0,0.15) 0 .18em .15em;
+}
+
+
+/* -------------- Shapes -------------- */
+
+/* round */
+.round, .round.glossy:after, .round.glass:after { 
+  border-top: none; 
+  -webkit-border-radius:  1em; 
+  -moz-border-radius:   1em; 
+  border-radius:      1em; 
+}
+
+/* oval */
+.oval {
+  border-top:       none; 
+  padding-left:       .8em;
+  padding-right:      .8em;
+  -webkit-border-radius:  5em / 2em; 
+  -moz-border-radius:   5em / 2em; 
+  border-radius:      5em / 2em; 
+}
+.oval.glossy:after, .oval.glass:after {   
+  top:          5%;
+  -webkit-border-radius:  5em / 2em 2em 1em 1em; 
+  -moz-border-radius:   5em / 2em 2em 1em 1em; 
+  border-radius:      5em / 2em 2em 1em 1em; 
+}
+.oval.icon {
+  padding-left:       .8em;
+  padding-right:      .8em; 
+  -webkit-border-radius:  1.5em / 1em; 
+  -moz-border-radius:   1.5em / 1em; 
+  border-radius:      1.5em / 1em; 
+}
+.oval.icon.glossy:after, .oval.icon.glass:after { 
+  -webkit-border-radius:  1.5em / 1em; 
+  -moz-border-radius:   1.5em / 1em; 
+  border-radius:      1.5em / 1em; 
+}
+
+/* brackets */
+.brackets, .brackets.glossy:after, .brackets.glass:after { 
+  border-top:       none; 
+  -webkit-border-radius:  .5em / 1em;
+  -moz-border-radius:   .5em / 1em;
+  border-radius:      .5em / 1em;
+}
+
+/* skew */
+.skew { 
+  border-top:       none; 
+  padding-right:      1.2em;
+  padding-left:       0.8em;  
+  -webkit-border-radius:  5em 1em / 5em 1em;  
+  -moz-border-radius:   5em 1em / 5em 1em;  
+  border-radius:      5em 1em / 5em 1em;  
+}
+.skew.glossy:after, .skew.glass:after {   
+  left: 10%;
+  -webkit-border-radius:  7em 1em / 5em 1em;
+  -moz-border-radius:   7em 1em / 5em 1em;
+  border-radius:      7em 1em / 5em 1em;
+}
+.skew.icon {  
+  padding-right:      .9em;
+  padding-left:       .8em;
+}
+
+/* back */
+.back, .back.glossy:after, .back.glass:after { 
+  border-top-color:     rgba(255,255,255,0.5);
+  -webkit-border-radius:  1.6em 1.6em 1em 1em / 4em 4em 1em 1em; 
+  -moz-border-radius:   1.6em 1.6em 1em 1em / 4em 4em 1em 1em; 
+  border-radius:      1.6em 1.6em 1em 1em / 4em 4em 1em 1em; 
+}
+.back.glossy:after, .back.glass:after { 
+   left:  6%;
+   width: 88%;
+}
+
+/* knife */
+.knife {            
+  padding-left: 1.5em;
+  -webkit-border-radius:  .2em .5em .5em 8em / .2em .5em .5em 5em; 
+  -moz-border-radius:   .2em .5em .5em 8em / .2em .5em .5em 5em; 
+  border-radius:      .2em .5em .5em 8em / .2em .5em .5em 5em; 
+}
+.knife.glossy:after, .knife.glass:after {
+  left:           3%;
+  width:          97%;    
+  -webkit-border-radius:  .1em .5em .5em 8em / .1em .5em .5em 2em;   
+  -moz-border-radius:   .1em .5em .5em 8em / .1em .5em .5em 2em;   
+  border-radius:      .1em .5em .5em 8em / .1em .5em .5em 2em;   
+}
+.knife.glossy.icon:after, .knife.glass.icon:after { 
+  left:           5%; 
+  width:          95%;
+  -webkit-border-radius:  .5em .5em 1em 6em / .5em .5em 1em 4em; 
+  -moz-border-radius:   .5em .5em 1em 6em / .5em .5em 1em 4em; 
+  border-radius:      .5em .5em 1em 6em / .5em .5em 1em 4em; 
+}
+
+/* shield */
+.shield, .shield.glossy:after, .shield.glass:after { 
+  -webkit-border-radius:  .4em .4em 2em 2em / .4em .4em 3em 3em; 
+  -moz-border-radius:   .4em .4em 2em 2em / .4em .4em 3em 3em;
+  border-radius:      .4em .4em 2em 2em / .4em .4em 3em 3em;
+}
+.shield {               
+  padding-left:   .8em;
+  padding-right:  .8em;
+}
+.shield.icon {            
+  padding-left:   .6em; 
+  padding-right:  .6em;
+}
+
+/* drop */
+.drop {
+  border-top: none;
+  -webkit-border-radius:  2em 5em  2em .6em / 2em 4em 2em .6em; 
+  -moz-border-radius:   2em 5em  2em .6em / 2em 4em 2em .6em; 
+  border-radius:      2em 5em  2em .6em / 2em 4em 2em .6em; 
+}
+.drop.glossy:after, .drop.glass:after { 
+  left: 4%;
+  -webkit-border-radius:  2em 6em  2em 1em / 2em 4em 2em 2em; 
+  -moz-border-radius:   2em 6em  2em 1em / 2em 4em 2em 2em;
+  border-radius:      2em 6em  2em 1em / 2em 4em 2em 2em;
+}
+.drop.icon {  
+  padding-right: .6em; 
+}
+
+
+/* morph */
+.morph {
+  border-top: none;
+  -webkit-border-radius:  5em / 2em;
+  -moz-border-radius:   5em / 2em;
+  border-radius:      5em / 2em;
+  -webkit-transition:   -webkit-border-radius .3s ease-in-out;
+  -moz-transition:    -moz-border-radius .3s ease-in-out;
+  transition:       -moz-border-radius .3s ease-in-out;
+}
+.morph:hover { 
+  -webkit-border-radius:  .4em .4em 2em 2em / .4em .4em 3em 3em;
+  -moz-border-radius:   .4em .4em 2em 2em / .4em .4em 3em 3em;
+  border-radius:      .4em .4em 2em 2em / .4em .4em 3em 3em;
+}
+.morph:active { 
+  -webkit-border-radius:  .3em;
+  -moz-border-radius:   .3em;
+  border-radius:      .3em;
+}
+.morph:after { 
+  display: none;
+}
+
+
+
+
+/* Some ugly hacks for FF. 
+Thanks to David Hund for some help - http://valuedstandards.com/static/test/buttons/ */
+@-moz-document url-prefix() {
+  .button { text-align: center; }
+  .icon { padding: .5em 1em; }
+  .icon:before { margin-left: -.42em; float: left; }
+  
+  .drop.icon { padding-right: 1.1em; }
+  .shield.icon { padding-left: 1.1em; padding-right: 1.1em; }
+  .skew.icon { padding-right: 1.4em; padding-left: 1.3em; }
+  .oval.icon { padding-left: 1.3em; padding-right: 1.3em; }
+  .knife { padding-left: 2em; }
+}
+
+
+
+
+/* Damn, this became a fat baby..  */
+</style>
+
+
+<style>
+      .accounttype{
+        display: inline-block;
+      margin-left: 8px;
+      margin-bottom: 40px;
+      margin-top: 15px;
+    }
+    input[type="radio"] {
+        display:inline-block;
+        margin-left: 10px;
+
+    }
+    label {
+        display:inline-block;
+    }
+    </style>
+
+    <style>
+    .iPhoneCheckContainer {
+      -webkit-transform:translate3d(0,0,0);
+      position: relative;
+      height: 27px;
+      cursor: pointer;
+      overflow: hidden; }
+      .iPhoneCheckContainer input {
+        position: absolute;
+        top: 5px;
+        left: 30px;
+        filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+        opacity: 0; }
+      .iPhoneCheckContainer label {
+        white-space: nowrap;
+        font-size: 17px;
+        line-height: 17px;
+        font-weight: bold;
+        font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+        cursor: pointer;
+        display: block;
+        height: 27px;
+        position: absolute;
+        width: auto;
+        top: 0;
+        padding-top: 5px;
+        overflow: hidden; }
+      .iPhoneCheckContainer, .iPhoneCheckContainer label {
+        user-select: none;
+        -moz-user-select: none;
+        -khtml-user-select: none; }
+
+    .iPhoneCheckDisabled {
+      filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
+      opacity: 0.5; }
+
+    label.iPhoneCheckLabelOn {
+      color: white;
+      background: url('images/iphone-style-checkboxes/on.png?1284697268') no-repeat;
+      text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.6);
+      left: 0;
+      padding-top: 5px; }
+      label.iPhoneCheckLabelOn span {
+        padding-left: 8px; }
+    label.iPhoneCheckLabelOff {
+      color: #8b8b8b;
+      background: url('images/iphone-style-checkboxes/off.png?1284697268') no-repeat right 0;
+      text-shadow: 0px 0px 2px rgba(255, 255, 255, 0.6);
+      text-align: right;
+      right: 0; }
+      label.iPhoneCheckLabelOff span {
+        padding-right: 8px; }
+
+    .iPhoneCheckHandle {
+      display: block;
+      height: 27px;
+      cursor: pointer;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      background: url('images/iphone-style-checkboxes/slider_left.png?1284697268') no-repeat;
+      padding-left: 3px; }
+
+    .iPhoneCheckHandleRight {
+      height: 100%;
+      width: 100%;
+      padding-right: 3px;
+      background: url('images/iphone-style-checkboxes/slider_right.png?1284697268') no-repeat right 0; }
+
+    .iPhoneCheckHandleCenter {
+      height: 100%;
+      width: 100%;
+      background: url('images/iphone-style-checkboxes/slider_center.png?1284697268'); }
+
+    .iOSCheckContainer {
+      position: relative;
+      height: 27px;
+      cursor: pointer;
+      overflow: hidden; }
+      .iOSCheckContainer input {
+        position: absolute;
+        top: 5px;
+        left: 30px;
+        filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+        opacity: 0; }
+      .iOSCheckContainer label {
+        white-space: nowrap;
+        font-size: 17px;
+        line-height: 17px;
+        font-weight: bold;
+        font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+        cursor: pointer;
+        display: block;
+        height: 27px;
+        position: absolute;
+        width: auto;
+        top: 0;
+        padding-top: 5px;
+        overflow: hidden; }
+      .iOSCheckContainer, .iOSCheckContainer label {
+        user-select: none;
+        -moz-user-select: none;
+        -khtml-user-select: none; }
+
+    .iOSCheckDisabled {
+      filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
+      opacity: 0.5; }
+
+    label.iOSCheckLabelOn {
+      color: white;
+      background: url('images/ios-style-checkboxes/on.png?1284697268') no-repeat;
+      text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.6);
+      left: 0;
+      padding-top: 5px; }
+      label.iOSCheckLabelOn span {
+        padding-left: 8px; }
+    label.iOSCheckLabelOff {
+      color: #8b8b8b;
+      background: url('images/ios-style-checkboxes/off.png?1284697268') no-repeat right 0;
+      text-shadow: 0px 0px 2px rgba(255, 255, 255, 0.6);
+      text-align: right;
+      right: 0; }
+      label.iOSCheckLabelOff span {
+        padding-right: 8px; }
+
+    .iOSCheckHandle {
+      display: block;
+      height: 27px;
+      cursor: pointer;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      background: url('images/ios-style-checkboxes/slider_left.png?1284697268') no-repeat;
+      padding-left: 3px; }
+
+    .iOSCheckHandleRight {
+      height: 100%;
+      width: 100%;
+      padding-right: 3px;
+      background: url('images/ios-style-checkboxes/slider_right.png?1284697268') no-repeat right 0; }
+
+    .iOSCheckHandleCenter {
+      height: 100%;
+      width: 100%;
+      background: url('images/ios-style-checkboxes/slider_center.png?1284697268'); }
+
+  </style>
+
+
+
+<!-- JAVASCRIPTS --> 
+
+<script src="../layout/scripts/jquery.fitvids.min.js"></script> 
+<script src="../layout/scripts/jquery.mobilemenu.js"></script> 
+<script src="../layout/scripts/nivo-lightbox/nivo-lightbox.min.js"></script>
+
+</body>
+</html>
